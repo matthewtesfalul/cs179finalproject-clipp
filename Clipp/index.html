@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clipp</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <!--update view based on the device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--get jquery mobile libraries and css-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="start">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <h3>because it's more than just a haricut</h3>
+        <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
+        <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
+    </div>
+</div>
+
+<div data-role="page" id="register_barber">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#register_barber" class="ui-btn-active ui-state-persist">Barber</a></li>
+                <li><a href="#register_client" data-transition="none">Client</a></li>
+            </ul>
+        </div>
+        <h3>Register Barber Content</h3>
+        <br>
+        <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
+    </div>
+</div>
+    
+<div data-role="page" id="register_client">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#register_barber" data-transition="none">Barber</a></li>
+                <li><a href="#register_client" class="ui-btn-active ui-state-persist">Client</a></li>
+            </ul>
+        </div>
+        <h3>Register Client Content</h3>
+        <br>
+        <a href="#client_home" data-transition="slide" class="ui-btn">Register and Login</a> 
+    </div>
+</div>
+    
+<div data-role="page" id="login_barber">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#login_barber" class="ui-btn-active ui-state-persist">Barber</a></li>
+                <li><a href="#login_client" data-transition="none">Client</a></li>
+            </ul>
+        </div>
+        <h3>Login Barber Content</h3>
+        <br>
+        <a href="#barber_home" data-transition="slide" class="ui-btn">Login</a> 
+    </div>
+</div>
+    
+<div data-role="page" id="login_client">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#login_barber" data-transition="none">Barber</a></li>
+                <li><a href="#login_client" class="ui-btn-active ui-state-persist">Client</a></li>
+            </ul>
+        </div>
+        <h3>Login Client Content</h3>
+        <br>
+        <a href="#client_home" data-transition="slide" class="ui-btn">Login</a> 
+    </div>
+</div>
+    
+<div data-role="page" id="barber_home">
+
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <a href="#profile" data-transition="slide" class="ui-btn">Personal Hub</a>
+        <a href="#discover_barber" data-transition="slide" class="ui-btn">Discover</a>
+        <a href="#public_profile" data-transition="slide"  class="ui-btn">View Public Profile</a>
+        <a href="#start" data-transition="slide" data-direction="reverse" class="ui-btn">Logout</a>
+    </div>
+    
+</div>
+    
+<div data-role="page" id="client_home">
+
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <a href="#discover_client" data-transition="slide" class="ui-btn">Discover</a>
+        <a href="#give_feedback" data-transition="slide"  class="ui-btn">Give Feedback</a>
+        <a href="#start" data-transition="slide" data-direction="reverse" class="ui-btn">Logout</a>
+    </div>
+    
+</div>
+    
+<div data-role="page" id="profile">
+    <div data-role="header">
+            <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a></li>
+                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#clipps" data-transition="none">Clipps</a></li>
+                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <h3>Profile Page Content</h3>
+    </div>
+
+</div>
+
+<div data-role="page" id="cuts">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" data-transition="none">Profile</a></li>
+                <li><a href="#cuts" class="ui-btn-active ui-state-persist">Cuts</a></li>
+                <li><a href="#clipps" data-transition="none">Clipps</a></li>
+                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <h3>Cuts Page Content</h3>
+    </div>
+</div>
+
+<div data-role="page" id="clipps">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" data-transition="none">Profile</a></li>
+                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
+                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <h3>Clipps Page Content</h3>
+    </div>
+</div>
+    
+<div data-role="page" id="feedback">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" data-transition="none">Profile</a></li>
+                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#clipps" data-transition="none">Clipps</a></li>
+                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <h3>Feedback Page Content</h3>
+    </div>
+</div>
+
+<div data-role="page" id="discover_barber">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+    </div>
+    <div data-role="content">
+        <h3>Discover Page Content</h3>
+    </div>
+</div>
+
+<div data-role="page" id="public_profile">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+    </div>
+    <div data-role="content">
+        <h3>Public Profile Page Content</h3>
+    </div>
+</div>
+    
+<div data-role="page" id="discover_client">
+    <div data-role="header">
+        <center>
+            <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+    </div>
+    <div data-role="content">
+        <h3>Discover Page Content</h3>
+    </div>
+</div>
+    
+<div data-role="page" id="give_feedback">
+    <div data-role="header">
+        <center>
+            <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+    </div>
+    <div data-role="content">
+        <h3>Give Feedback Page Content</h3>
+    </div>
+</div>
+    
+</body>
+</html>

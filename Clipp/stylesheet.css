@@ -1,0 +1,46 @@
+p {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.ui-page .ui-header {
+    background: white !important;
+}
+
+#start .ui-content{
+    background: white !important;
+    transform: translateY(50%);
+}
+
+#start {
+    background: white !important;
+}
+#barber_home .ui-content{
+    background: white !important;
+    transform: translateY(50%);
+}
+
+#barber_home {
+    background: white !important;
+}
+
+#client_home .ui-content{
+    background: white !important;
+    transform: translateY(50%);
+}
+
+#client_home {
+    background: white !important;
+}
+
+#login_barber{
+    background: white !important;
+}
+
+#login_client{
+    background: white !important;
+}
+
