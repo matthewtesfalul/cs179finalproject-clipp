@@ -52,3 +52,42 @@ h3 {
     background: white !important;
 }
 
+
+
+
+/*MAHAN*/
+
+.ui-table-columntoggle-btn {
+    display: none !important;
+}
+
+.badge{
+	position: relative;
+	z-index: 1;
+	width: 45px;
+}
+.badgecomplete{
+	position: relative;
+	z-index: 1;
+	width: 45px;
+	top:15px;
+	left:35px;
+}
+
+.add{
+	position: relative;
+	z-index: 1;
+    width: 14px;
+    top: -18px;
+    left: -14px;
+}
+
+.progress{
+	position: relative;
+	z-index: 2;
+	left: -50px;
+	width:45px;
+}
+
+
+/*MAHAN*/
