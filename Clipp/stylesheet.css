@@ -67,3 +67,79 @@ h3 {
     text-align: left;
     vertical-align: middle;
 }
+
+/*MAHAN*/
+
+.ui-table-columntoggle-btn {
+    display: none !important;
+}
+
+.badge{
+	position: relative;
+	z-index: 1;
+	width: 45px;
+}
+.badgecomplete{
+	position: relative;
+	z-index: 1;
+	width: 45px;
+	top:15px;
+	left:35px;
+}
+
+.add{
+	position: relative;
+	z-index: 1;
+    width: 14px;
+    top: -18px;
+    left: -14px;
+}
+
+.progress{
+	position: relative;
+	z-index: 2;
+	left: -50px;
+	width:45px;
+}
+
+
+.img-wrap {
+    position: relative;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 100px;
+    position: relative;
+}
+
+div.gallery .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    color:red;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
