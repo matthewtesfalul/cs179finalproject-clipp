@@ -52,3 +52,43 @@ h3 {
     background: white !important;
 }
 
+.img-wrap {
+    position: relative;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 100px;
+    position: relative;
+}
+
+div.gallery .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    color:red;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
