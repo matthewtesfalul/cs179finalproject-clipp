@@ -17,6 +17,113 @@
 </head>
 <body>
 
+<div data-role="page" id="feedback">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" data-transition="none">Profile</a></li>
+                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#clipps" data-transition="none">Clipps</a></li>
+                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <h3>Feedback</h3>
+        <ul class="feedback-list" data-role="listview" data-split-icon="delete" dta-split-theme="c" data-iconpos="top" data-filter="true" data-inset="true">
+            <li> 
+                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Best in town for fades and mohawks</strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Wish I found this place sooner!!! Girls watch out </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+        </ul>
+        <div data-role="popup" id="review-popup" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+            <h3> Review </h3>
+            <img src="pics/haircut2.png">
+            <p><strong>Best in town for fades and mohawks</strong></p>
+            <p><strong>05/15/2016</strong></p>
+            <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini" >Delete</a>
+            <a href="#feedback" data-role="button" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a  ui-btn-icon-notext ui-btn-right">Back</a>
+        </div>
+    </div>
+</div>
+
 <div data-role="page" id="start">
     <div data-role="content">
         <center>
@@ -416,7 +523,6 @@
 		
 		</div>
 		
-		
 		<!-- <img class="badge" src="pics/badges/fadepro.png"/> -->
 		<div class="ui-grid-b">
 		    <div class="ui-block-a" style="height:60px">
@@ -540,116 +646,6 @@
 				<img class="add" src="pics/badges/add.ico"/>
 			</div>
 							
-		
-    </div>
-</div>
-
-
-    
-<div data-role="page" id="feedback">
-    <div data-role="header">
-        <center>
-            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
-            </center>
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
-                <li><a href="#clipps" data-transition="none">Clipps</a></li>
-                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!--Matthew's work-->
-    <div data-role="content">
-        <h3>Feedback</h3>
-        <ul class="feedback-list" data-role="listview" data-split-icon="delete" dta-split-theme="c" data-iconpos="top" data-filter="true" data-inset="true">
-            <li> 
-                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Best in town for fades and mohawks</strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Wish I found this place sooner!!! Girls watch out </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-            <li> 
-                <a href="#">
-                    <img src="pics/badge_mockup.png">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
-                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
-                </a>
-                <a></a> 
-            </li>
-        </ul>
-        <div data-role="popup" id="review-popup" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
-            <h3> Review </h3>
-            <img src="pics/haircut2.png">
-            <p><strong>Best in town for fades and mohawks</strong></p>
-            <p><strong>05/15/2016</strong></p>
-            <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini" >Delete</a>
-            <a href="#feedback" data-role="button" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a  ui-btn-icon-notext ui-btn-right">Back</a>
     </div>
 </div>
 
