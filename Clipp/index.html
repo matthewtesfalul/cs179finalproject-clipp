@@ -11,6 +11,33 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <script type="text/javascript">
+        var cuts = ["haircut1","haircut2","haircut3","haircut4","haircut5","haircut6","haircut7","haircut8","haircut9"];
+        var profile_cuts = [];
+
+        function loadCuts() {
+            $("#cuts_content").empty();
+            for (i = 0; i < cuts.length; i++) { 
+                var node = document.getElementById('cuts_content');
+                var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" style="width:30%"></a>'
+                // var string2 = '<div data-role="popup" id=' +  cuts[i] + 'data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + 'style="max-height:512px;" alt="Paris, France"> </div>'
+                // node.innerHTML += string1 + string2;
+                node.innerHTML += string1;
+            }
+        }
+
+        function addCutToProfile (id) {
+            profile_cuts.push(id);
+        }
+
+        function printProfileCuts() {
+            $("#profile_content").empty();
+            for (i = 0; i < profile_cuts.length; i++) { 
+                var node = document.getElementById('profile_content');
+                var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img onclick="addCutToProfile(\'' + profile_cuts[i] + '\')" class="popphoto" src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" style="width:30%"></a>'
+                node.innerHTML += string1
+            }
+        }
+
 
     </script>
 
@@ -24,8 +51,8 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
             </ul>
@@ -290,15 +317,15 @@
     
 </div>
     
-<div data-role="page" id="profile">
+<div data-role="page" id="profile" >
     <div data-role="header">
             <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
@@ -307,19 +334,23 @@
 
     <div data-role="content">
         <h3>Profile Page Content</h3>
+        <!-- DIONDRA JUST A POC -->
+        <div id="profile_content">
+
+        </div>
     </div>
 
 </div>
 
-<div data-role="page" id="cuts">
+<div data-role="page" id="cuts" >
     <div data-role="header">
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" class="ui-btn-active ui-state-persist">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
@@ -331,52 +362,9 @@
     </div>
 
 
-    <div data-role="content">
+    <div id="cuts_content"data-role="content">
         
-        <a href="#haircut1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut1.jpg" alt="Paris, France" style="width:30%"></a>
-        <a href="#haircut2" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut2.jpg" alt="Sydney, Australia" style="width:30%"></a>
-        <a href="#haircut3" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut3.jpg" alt="New York, USA" style="width:30%"></a>
-        
-        <a href="#haircut4" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut4.jpg" alt="Paris, France" style="width:30%"></a>
-        <a href="#haircut5" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut5.jpg" alt="Sydney, Australia" style="width:30%"></a>
-        <a href="#haircut6" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut6.jpg" alt="New York, USA" style="width:30%"></a>
 
-        <a href="#haircut7" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut7.jpg" alt="Paris, France" style="width:30%"></a>
-        <a href="#haircut8" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut8.jpg" alt="Sydney, Australia" style="width:30%"></a>
-        <a href="#haircut9" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="pics/haircut9.jpg" alt="New York, USA" style="width:30%"></a>
-
-
-
-
-        <div data-role="popup" id="haircut1" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
-        </div>
-        <div data-role="popup" id="haircut2" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
-        </div>
-        <div data-role="popup" id="haircut3" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
-        </div>
-
-        <div data-role="popup" id="haircut4" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
-        </div>
-        <div data-role="popup" id="haircut5" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
-        </div>
-        <div data-role="popup" id="haircut6" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
-        </div>
-
-        <div data-role="popup" id="haircut7" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
-        </div>
-        <div data-role="popup" id="haircut8" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
-        </div>
-        <div data-role="popup" id="haircut9" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
-        </div>
     </div>
 </div>
 
@@ -389,8 +377,8 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
@@ -504,8 +492,8 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
