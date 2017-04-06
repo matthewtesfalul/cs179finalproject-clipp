@@ -115,6 +115,10 @@ h3 {
     height:110px;
 }
 
+.pop {
+    width:120px;
+    height:170px; 
+}
 .img-wrap {
     position: relative;
 }
