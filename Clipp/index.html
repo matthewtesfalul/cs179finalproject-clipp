@@ -36,7 +36,7 @@
                 for (i = 0; i < profile_cuts.length; i++) { 
                     var node = document.getElementById("portfolio_content");
                     var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1
+                    node.innerHTML += string1;
             }
         }
         
@@ -45,10 +45,9 @@
                 for (i = 0; i < profile_cuts.length; i++) { 
                     var node = document.getElementById("public_portfolio_content");
                     var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1
+                    node.innerHTML += string1;
             }
         }
-
 
     </script>
 
@@ -292,7 +291,6 @@
 
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-            
                     <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
                 </div>
             </form> 
