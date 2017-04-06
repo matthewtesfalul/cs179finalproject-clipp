@@ -20,7 +20,7 @@
             for (i = 0; i < cuts.length; i++) { 
                 var node = document.getElementById('cuts_content');
                 // var string1 = '<a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="add_cuts" src="pics/badges/add.ico"/> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
-                var string1 = ' <a href=#confirm data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+                var string1 = ' <a href=#confirm' + (i+1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
                 string2 += '<div data-role="popup" id=' +  cuts[i] + ' data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' style="max-height:512px;" alt="Paris, France"> </div>'
                 node.innerHTML += string1;
             }
@@ -385,48 +385,103 @@
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
         </div>
+        <h2>Cuts</h2>
+        <div>
+            <!-- <h3>Cuts</h3> -->
+            <!-- <button>Add Photo</button> --> 
+        </div?
         <div data-role="fieldcontain">
             <label for="search-basic">Search For Cut:</label>
             <input data-type="search" name="search" id="search-basic" value="" />
         </div>
+
     </div>
 
 
     <div id="cuts_content"data-role="content">
-        <div data-role="popup" id="confirm" data-overlay-theme="b" data-theme="b" data-corners="false">
+        <div data-role="popup" id="confirm1" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
              Do you want to add picture to profile?
             <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut1") > Yes </button> </a>
             <a href="#" data-rel="back"> <button> No </button> </a>
         </div>
+        <div data-role="popup" id="confirm2" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut2") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm3" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut3") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm4" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut4") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm5" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut5") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm6" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut6") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm7" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut7") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm8" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut8") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="confirm9" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut9") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+
         <div data-role="popup" id="haircut1" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
         </div>
         <div data-role="popup" id="haircut2" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
         </div>
         <div data-role="popup" id="haircut3" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
 
         <div data-role="popup" id="haircut4" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut4.jpg" style="max-height:512px;" alt="Paris, France">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut4.jpg" style="max-height:512px;" alt="Paris, France">
         </div>
         <div data-role="popup" id="haircut5" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut5.jpg" style="max-height:512px;" alt="Sydney, Australia">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut5.jpg" style="max-height:512px;" alt="Sydney, Australia">
         </div>
         <div data-role="popup" id="haircut6" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut6.jpg" style="max-height:512px;" alt="New York, USA">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut6.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
 
         <div data-role="popup" id="haircut7" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut7.jpg" style="max-height:512px;" alt="Paris, France">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut7.jpg" style="max-height:512px;" alt="Paris, France">
         </div>
         <div data-role="popup" id="haircut8" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut8.jpg" style="max-height:512px;" alt="Sydney, Australia">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut8.jpg" style="max-height:512px;" alt="Sydney, Australia">
         </div>
         <div data-role="popup" id="haircut9" data-overlay-theme="b" data-theme="b" data-corners="false">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="pop" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
 
     </div>
