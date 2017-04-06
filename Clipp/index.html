@@ -9,8 +9,158 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript">
+        var cuts = ["haircut1","haircut2","haircut3","haircut4","haircut5","haircut6","haircut7","haircut8","haircut9"];
+        var profile_cuts = [];
+
+        function loadCuts() {
+            $("#cuts_content").empty();
+            for (i = 0; i < cuts.length; i++) { 
+                var node = document.getElementById('cuts_content');
+                var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" style="width:30%"></a>'
+                // var string2 = '<div data-role="popup" id=' +  cuts[i] + 'data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + 'style="max-height:512px;" alt="Paris, France"> </div>'
+                // node.innerHTML += string1 + string2;
+                node.innerHTML += string1;
+            }
+        }
+
+        function addCutToProfile (id) {
+            if (profile_cuts.length < 4) {
+                profile_cuts.push(id);
+            }
+        }
+
+        function printProfileCuts() {
+            $("#portfolio_content").empty();
+                for (i = 0; i < profile_cuts.length; i++) { 
+                    var node = document.getElementById("portfolio_content");
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    node.innerHTML += string1
+            }
+        }
+        
+        function printPublicProfileCuts() {
+            $("#public_portfolio_content").empty();
+                for (i = 0; i < profile_cuts.length; i++) { 
+                    var node = document.getElementById("public_portfolio_content");
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    node.innerHTML += string1
+            }
+        }
+
+
+    </script>
+
 </head>
 <body>
+
+<div data-role="page" id="feedback">
+    <div data-role="header">
+        <center>
+            <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
+            </center>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
+                <li><a href="#clipps" data-transition="none">Clipps</a></li>
+                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <h3>Feedback</h3>
+        <ul class="feedback-list" data-role="listview" data-split-icon="delete" dta-split-theme="c" data-iconpos="top" data-filter="true" data-inset="true">
+            <li> 
+                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Best in town for fades and mohawks</strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Wish I found this place sooner!!! Girls watch out </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+            <li> 
+                <a href="#">
+                    <img src="pics/badge_mockup.png">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>Service was quick, barber was friendly, and the cut was spectacular </strong></p>
+                    <p class="ui-li-aside"><strong>05/15/2016</strong></p>
+                </a>
+                <a></a> 
+            </li>
+        </ul>
+        <div data-role="popup" id="review-popup" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+            <h3> Review </h3>
+            <img src="pics/haircut2.png">
+            <p><strong>Best in town for fades and mohawks</strong></p>
+            <p><strong>05/15/2016</strong></p>
+            <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini" >Delete</a>
+            <a href="#feedback" data-role="button" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a  ui-btn-icon-notext ui-btn-right">Back</a>
+        </div>
+    </div>
+</div>
 
 <div data-role="page" id="start">
     <div data-role="content">
@@ -34,7 +184,32 @@
                 <li><a href="#register_client" data-transition="none">Client</a></li>
             </ul>
         </div>
-        <h3>Register Barber Content</h3>
+            <form method="post" action="/action_page_post.php">
+              <label for="fname">First name:</label>
+              <input type="text" name="fname" id="fname">
+
+              <label for="lname">Last name:</label>
+              <input type="text" name="lname" id="lname">
+
+              <fieldset data-role="controlgroup">
+              <legend>Choose your gender:</legend>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female">
+              </fieldset>
+
+              <label for="info">Short Bio:</label>
+              <textarea name="addinfo" id="info"></textarea>
+
+              <label for="bshop">Barbershop:</label>
+              <input type="text" name="bshop" id="bshop">
+
+
+              <label for="cnum">Contact Number:</label>
+              <input type="text" name="cnum" id="cnum">
+
+            </form>
         <br>
         <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
     </div>
@@ -51,7 +226,22 @@
                 <li><a href="#register_client" class="ui-btn-active ui-state-persist">Client</a></li>
             </ul>
         </div>
-        <h3>Register Client Content</h3>
+            <form method="post" action="/action_page_post.php">
+              <label for="fname">First name:</label>
+              <input type="text" name="fname" id="fname">
+
+              <label for="lname">Last name:</label>
+              <input type="text" name="lname" id="lname">
+
+              <fieldset data-role="controlgroup">
+              <legend>Choose your gender:</legend>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female">
+              </fieldset>
+
+            </form>
         <br>
         <a href="#client_home" data-transition="slide" class="ui-btn">Register and Login</a> 
     </div>
@@ -68,9 +258,18 @@
                 <li><a href="#login_client" data-transition="none">Client</a></li>
             </ul>
         </div>
-        <h3>Login Barber Content</h3>
-        <br>
-        <a href="#barber_home" data-transition="slide" class="ui-btn">Login</a> 
+        <form>
+            <div class="container">
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+        
+                <a href="#barber_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
+            </div>
+        </form> 
+        <!-- <a href="#barber_home" data-transition="slide" class="ui-btn">Login</a> -->
     </div>
 </div>
     
@@ -85,12 +284,23 @@
                 <li><a href="#login_client" class="ui-btn-active ui-state-persist">Client</a></li>
             </ul>
         </div>
-        <h3>Login Client Content</h3>
+        
+            <form>
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                    <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
+                </div>
+            </form> 
         <br>
-        <a href="#client_home" data-transition="slide" class="ui-btn">Login</a> 
+        <!-- <a href="#barber_home" data-transition="slide" class="ui-btn">Login</a> -->
     </div>
 </div>
-    
+
 <div data-role="page" id="barber_home">
 
     <div data-role="content">
@@ -104,7 +314,7 @@
     </div>
     
 </div>
-    
+
 <div data-role="page" id="client_home">
 
     <div data-role="content">
@@ -118,15 +328,15 @@
     
 </div>
     
-<div data-role="page" id="profile">
+<div data-role="page" id="profile" >
     <div data-role="header">
             <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick='printProfileCuts()'>Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
@@ -134,30 +344,61 @@
     </div>
 
     <div data-role="content">
-        <h3>Profile Page Content</h3>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printPublicProfileCuts()">Preview Profile ></a>
+        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
+        <!-- clear float -->
+        <div style="clear: both;"></div>
+        <div class="lower_section">
+            <h4>Portfolio <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <div id="portfolio_content"></div>
+            <!-- clear float -->
+            <div style="clear: both;"></div>
+            <h4>Clipps <a href="#clipps" data-transition="none"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <div id="clipps_content" style="width:100%; text-align:center">
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/> 
+            </div>
+            <h4>Testimonials <a href="#feedback" data-transition="none"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <p class="testimonial">"Best in town for fades and mohawks"</p>
+            <p class="testimonial">"Wish I found this place sooner!"</p>
+        </div>
     </div>
-
 </div>
 
-<div data-role="page" id="cuts">
+<div data-role="page" id="cuts" >
     <div data-role="header">
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" class="ui-btn-active ui-state-persist">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
         </div>
+        <div data-role="fieldcontain">
+            <label for="search-basic">Search For Cut:</label>
+            <input data-type="search" name="search" id="search-basic" value="" />
+        </div>
     </div>
-    <div data-role="content">
-        <h3>Cuts Page Content</h3>
+
+
+    <div id="cuts_content"data-role="content">
+        
+
     </div>
 </div>
 
+
+<!--CLIPPS PAGE -->
 <div data-role="page" id="clipps">
     <div data-role="header">
         <center>
@@ -165,34 +406,263 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
-        <h3>Clipps Page Content</h3>
+        <h3>Clipps</h3>
+		
+		<!-- The completed vs in progress navbar -->
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#clipps-completed" data-transition="none">Completed</a></li>
+				<li><a href="#clipps" class="ui-btn-active ui-state-persist" >In Progress</a></li>
+			</ul>
+		
+		</div>
+		
+	    <table data-role="table" data-mode="columntoggle" class="ui-responsive">
+	      <thead>
+	        <tr>
+	          <th>Badge</th>
+	          <th>Endorsements</th>
+			  <th>Clipp name</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/10.png"/>
+			  </td>
+	          
+			  <td>1/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/20.png"/>
+			  </td>
+	          
+			  <td>2/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/30.png"/>
+			  </td>
+	          
+			  <td>3/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/40.png"/>
+			  </td>
+	          
+			  <td>4/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/50.png"/>
+			  </td>
+	          
+			  <td>5/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/60.png"/>
+			  </td>
+	          
+			  <td>6/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/70.png"/>
+			  </td>
+	          
+			  <td>7/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/fadepro.png"/>
+			      <img class="progress" src="pics/progress/80.png"/>
+			  </td>
+	          
+			  <td>8/10</td>
+			  <td>Fade pro</td>
+	        </tr>
+	      </tbody>
+	    </table>
+		
+		
     </div>
 </div>
-    
-<div data-role="page" id="feedback">
+
+<!--CLIPPS COMPLETED PAGE -->
+<div data-role="page" id="clipps-completed">
     <div data-role="header">
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none">Profile</a></li>
-                <li><a href="#cuts" data-transition="none">Cuts</a></li>
-                <li><a href="#clipps" data-transition="none">Clipps</a></li>
-                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
+                <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
+                <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
-        <h3>Feedback Page Content</h3>
+        <h3>Clipps</h3>
+		
+		<!-- The completed vs in progress navbar -->
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#clipps-completed" class="ui-btn-active ui-state-persist">Completed</a></li>
+				<li><a href="#clipps" data-transition="none">In Progress</a></li>
+			</ul>
+		
+		</div>
+		
+		<!-- <img class="badge" src="pics/badges/fadepro.png"/> -->
+		<div class="ui-grid-b">
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/check.png"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/check.png"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/check.png"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/check.png"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/check.png"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-a" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-b" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>
+		    <div class="ui-block-c" style="height:60px">
+		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
+				<img class="add" src="pics/badges/add.ico"/>
+			</div>					
+        </div>
     </div>
 </div>
 
@@ -214,10 +684,33 @@
             </center>
     </div>
     <div data-role="content">
-        <h3>Public Profile Page Content</h3>
+        <a href="#" class="ui-btn ui-btn-left ui-mini" data-rel="back"> Back </a>
+        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
+        <!-- clear float -->
+        <div style="clear: both;"></div>
+        <div class="lower_section">
+            <h4>Portfolio</h4>
+            <div id="public_portfolio_content"></div>
+            <!-- clear float -->
+            <div style="clear: both;"></div>
+            <h4>Clipps</h4>
+            <div id="clipps_content" style="width:100%; text-align:center">
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/> 
+            </div>
+            <h4>Testimonials</h4>
+            <p class="testimonial">"Best in town for fades and mohawks"</p>
+            <p class="testimonial">"Wish I found this place sooner!"</p>
+        </div>
     </div>
 </div>
-    
+
 <div data-role="page" id="discover_client">
     <div data-role="header">
         <center>
@@ -239,6 +732,6 @@
         <h3>Give Feedback Page Content</h3>
     </div>
 </div>
-    
+
 </body>
 </html>
