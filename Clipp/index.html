@@ -16,33 +16,57 @@
 
         function loadCuts() {
             $("#cuts_content").empty();
+            var string2 = ""
             for (i = 0; i < cuts.length; i++) { 
                 var node = document.getElementById('cuts_content');
-                var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" style="width:30%"></a>'
-                // var string2 = '<div data-role="popup" id=' +  cuts[i] + 'data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + 'style="max-height:512px;" alt="Paris, France"> </div>'
-                // node.innerHTML += string1 + string2;
+                // var string1 = '<a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="add_cuts" src="pics/badges/add.ico"/> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+                var string1 = ' <a href=#confirm data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+                string2 += '<div data-role="popup" id=' +  cuts[i] + ' data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' style="max-height:512px;" alt="Paris, France"> </div>'
                 node.innerHTML += string1;
             }
         }
 
         function addCutToProfile (id) {
-            profile_cuts.push(id);
-        }
-
-        function printProfileCuts() {
-            $("#profile_content").empty();
-            for (i = 0; i < profile_cuts.length; i++) { 
-                var node = document.getElementById('profile_content');
-                var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img onclick="addCutToProfile(\'' + profile_cuts[i] + '\')" class="popphoto" src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" style="width:30%"></a>'
-                node.innerHTML += string1
+            if (profile_cuts.length < 4) {
+                profile_cuts.push(id);
             }
         }
 
+        function printProfileCuts() {
+            $("#portfolio_content").empty();
+                for (i = 0; i < profile_cuts.length; i++) { 
+                    var node = document.getElementById("portfolio_content");
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    node.innerHTML += string1;
+            }
+        }
+        
+        function printPublicProfileCuts() {
+            $("#public_portfolio_content").empty();
+                for (i = 0; i < profile_cuts.length; i++) { 
+                    var node = document.getElementById("public_portfolio_content");
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    node.innerHTML += string1;
+            }
+        }
 
     </script>
 
 </head>
 <body>
+
+
+
+<div data-role="page" id="start">
+    <div data-role="content">
+        <center>
+            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <h3>because it's more than just a haricut</h3>
+        <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
+        <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
+    </div>
+</div>
 
 <div data-role="page" id="feedback">
     <div data-role="header">
@@ -148,17 +172,6 @@
             <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini" >Delete</a>
             <a href="#feedback" data-role="button" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a  ui-btn-icon-notext ui-btn-right">Back</a>
         </div>
-    </div>
-</div>
-
-<div data-role="page" id="start">
-    <div data-role="content">
-        <center>
-            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
-        </center>
-        <h3>because it's more than just a haricut</h3>
-        <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
-        <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
     </div>
 </div>
 
@@ -281,8 +294,7 @@
 
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-            
-                    <a href="#barber_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
+                    <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
                 </div>
             </form> 
         <br>
@@ -324,7 +336,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick='printProfileCuts()'>Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -333,13 +345,31 @@
     </div>
 
     <div data-role="content">
-        <h3>Profile Page Content</h3>
-        <!-- DIONDRA JUST A POC -->
-        <div id="profile_content">
-
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printPublicProfileCuts()">Preview Profile ></a>
+        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
+        <!-- clear float -->
+        <div style="clear: both;"></div>
+        <div class="lower_section">
+            <h4>Portfolio <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <div id="portfolio_content"></div>
+            <!-- clear float -->
+            <div style="clear: both;"></div>
+            <h4>Clipps <a href="#clipps" data-transition="none"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <div id="clipps_content" style="width:100%; text-align:center">
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/> 
+            </div>
+            <h4>Testimonials <a href="#feedback" data-transition="none"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <p class="testimonial">"Best in town for fades and mohawks"</p>
+            <p class="testimonial">"Wish I found this place sooner!"</p>
         </div>
     </div>
-
 </div>
 
 <div data-role="page" id="cuts" >
@@ -363,7 +393,41 @@
 
 
     <div id="cuts_content"data-role="content">
-        
+        <div data-role="popup" id="confirm" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
+             Do you want to add picture to profile?
+            <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut1") > Yes </button> </a>
+            <a href="#" data-rel="back"> <button> No </button> </a>
+        </div>
+        <div data-role="popup" id="haircut1" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
+        </div>
+        <div data-role="popup" id="haircut2" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut2.jpg" style="max-height:512px;" alt="Sydney, Australia">
+        </div>
+        <div data-role="popup" id="haircut3" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut3.jpg" style="max-height:512px;" alt="New York, USA">
+        </div>
+
+        <div data-role="popup" id="haircut4" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut4.jpg" style="max-height:512px;" alt="Paris, France">
+        </div>
+        <div data-role="popup" id="haircut5" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut5.jpg" style="max-height:512px;" alt="Sydney, Australia">
+        </div>
+        <div data-role="popup" id="haircut6" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut6.jpg" style="max-height:512px;" alt="New York, USA">
+        </div>
+
+        <div data-role="popup" id="haircut7" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut7.jpg" style="max-height:512px;" alt="Paris, France">
+        </div>
+        <div data-role="popup" id="haircut8" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut8.jpg" style="max-height:512px;" alt="Sydney, Australia">
+        </div>
+        <div data-role="popup" id="haircut9" data-overlay-theme="b" data-theme="b" data-corners="false">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
+        </div>
 
     </div>
 </div>
@@ -632,8 +696,8 @@
 		    <div class="ui-block-c" style="height:60px">
 		    	<img class="badgecomplete" src="pics/badges/fadepro.png"/>
 				<img class="add" src="pics/badges/add.ico"/>
-			</div>
-							
+			</div>					
+        </div>
     </div>
 </div>
 
@@ -655,7 +719,30 @@
             </center>
     </div>
     <div data-role="content">
-        <h3>Public Profile Page Content</h3>
+        <a href="#" class="ui-btn ui-btn-left ui-mini" data-rel="back"> Back </a>
+        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
+        <!-- clear float -->
+        <div style="clear: both;"></div>
+        <div class="lower_section">
+            <h4>Portfolio</h4>
+            <div id="public_portfolio_content"></div>
+            <!-- clear float -->
+            <div style="clear: both;"></div>
+            <h4>Clipps</h4>
+            <div id="clipps_content" style="width:100%; text-align:center">
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/>
+            <img class="badge" src="pics/badges/fadepro.png"/> 
+            </div>
+            <h4>Testimonials</h4>
+            <p class="testimonial">"Best in town for fades and mohawks"</p>
+            <p class="testimonial">"Wish I found this place sooner!"</p>
+        </div>
     </div>
 </div>
 

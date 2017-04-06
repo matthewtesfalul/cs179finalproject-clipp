@@ -102,6 +102,18 @@ h3 {
 	width:45px;
 }
 
+.add_cuts {
+    position: relative;
+    z-index: 1;
+    width: 14px;
+    top: -100px;
+    left: 10px;
+}
+
+.popphoto{
+    width:90px;
+    height:110px;
+}
 
 .img-wrap {
     position: relative;
@@ -143,3 +155,91 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
+<<<<<<< HEAD
+
+/*DIONDRA Profile Section*/
+#profile .ui-content h4{
+    background-color: lightgrey!important;
+    text-shadow: none;
+    color: black;
+    padding: 3px;
+    border: 3px solid black;
+}
+
+#proflie .ui-mini{
+    left: 50px;
+}
+
+img.border {
+    position: relative;
+    border: 3px solid black;
+    float: left;
+}
+
+#portfolio_content img{
+    position: relative;
+    border: 2px solid black;
+    float: left;
+    margin-left: 5px;
+}
+
+#public_profile .ui-content h4{
+    background-color: lightgrey!important;
+    text-shadow: none;
+    color: black;
+    padding: 3px;
+    border: 3px solid black;
+}
+
+#public_portfolio_content img{
+    position: relative;
+    border: 2px solid black;
+    float: left;
+    margin-left: 5px;
+}
+
+img.space {
+    margin-left: 10px;
+}
+
+#profile div.lower_section {
+    position: relative;
+}
+
+#profile .testimonial {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+#public_profile .testimonial {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+p.name {
+    color: firebrick;
+    font-weight: 600;
+    text-align: left;
+    position: relative;
+    left: 10px;
+}
+
+p.small_bio{
+    color: black;
+    font-size: .8em;
+    text-align: left;
+    position: relative;
+    left: 10px;
+}
+
+.add-btn {
+    width: 100px !important;
+}
+
+#profile img.add {
+    position: relative !important;
+    top: 2px;
+    left: 1px;
+}
+=======
+>>>>>>> cf0c94ddb3f497f92081129226a3c71a7d0d9334
