@@ -102,6 +102,18 @@ h3 {
 	width:45px;
 }
 
+.add_cuts {
+    position: relative;
+    z-index: 1;
+    width: 14px;
+    top: -100px;
+    left: 10px;
+}
+
+.popphoto{
+    width:90px;
+    height:110px;
+}
 
 .img-wrap {
     position: relative;
