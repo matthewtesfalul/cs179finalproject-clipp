@@ -310,5 +310,15 @@ p.small_bio{
 }
 
 
+#discover_barber .ui-field-contain {
+    padding:2px !important;
+    border-bottom: 0px !important;
+}
+
+#discover_client .ui-field-contain {
+    padding:2px !important;
+    border-bottom: 0px !important;
+}
+
 
 

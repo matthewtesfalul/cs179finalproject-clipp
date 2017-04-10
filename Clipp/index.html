@@ -743,13 +743,17 @@
     </div>
     <div data-role="content">
         <h3 id="nav-menu-subtitle">Discover</h3> 
-        <form method="post" action="/action_page_post.php">
+         <form method="post" action="/action_page_post.php">
+        <div class="ui-field-contain">      
           <label for="flocation">Find a barber near:</label>
           <input type="text" name="flocation" id="flocation" placeholder='ex) "XXXX Smith St. Houston, Tx" or "77040"'>
+        </div>
+        <div class="ui-field-contain">      
+
           <label for="max-distance">Max distance (miles):</label>
           <input type="range" name="max-distance" id="max-distance" value="10" min="0" max="25" data-highlight="true" data-track-theme="b">
-
-        <div >
+      </div>
+        <div class="ui-field-contain"> 
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 <legend>Cost:</legend>
                 <input type="checkbox" name="low-cost" id="low-cost">
@@ -760,23 +764,23 @@
                 <label for="high-cost">$$$</label>
             </fieldset>
         </div>
-      <!--   <div >
+        <!-- <div>
             <label for="walkin">Walk-ins</label>
             <select name="walkin" id="walkin" data-role="slider" data-mini="true">
                 <option value="off">No</option>
                 <option value="on" selected="">Yes</option>
             </select>
         </div> -->
-        <div >
-            <label for="appointment">Appointments</label>
+        <div class="ui-field-contain">
+            <label for="appointment">Appointments:</label>
             <select name="appointment" id="appointment" data-role="slider" data-mini="true">
                 <option value="off">No</option>
                 <option value="on" selected="">Yes</option>
             </select>
         </div>
-        <div >
-<!--             <label for="haircuts">Haircut Preferences:</label>
- -->            <select name="haircuts" id="haircuts" multiple="multiple" data-native-menu="false">
+        <label>I'm looking for:</label>
+        <div>
+            <select name="haircuts" id="haircuts" multiple="multiple" data-native-menu="false">
               <option>Haircut Specialities</option>
               <option value="mon">Fade</option>
               <option value="tue">Buzz Cut</option>
@@ -786,9 +790,8 @@
               <option value="sat">Flat Top</option>
             </select>
         </div>
-        <div >
-<!--             <label for="barber-preference">Barber Preferences:</label>
- -->            <select name="barber-preference" id="barber-preference" multiple="multiple" data-native-menu="false">
+        <div>
+            <select name="barber-preference" id="barber-preference" multiple="multiple" data-native-menu="false">
               <option>Barber Qualities</option>
               <option value="mon">Conversationalist</option>
               <option value="tue">Black Barber Shop</option>
@@ -886,12 +889,16 @@
     <div data-role="content">
         <h3 id="nav-menu-subtitle">Discover</h3> 
         <form method="post" action="/action_page_post.php">
+        <div class="ui-field-contain">      
           <label for="flocation">Find a barber near:</label>
           <input type="text" name="flocation" id="flocation" placeholder='ex) "XXXX Smith St. Houston, Tx" or "77040"'>
+        </div>
+        <div class="ui-field-contain">      
+
           <label for="max-distance">Max distance (miles):</label>
           <input type="range" name="max-distance" id="max-distance" value="10" min="0" max="25" data-highlight="true" data-track-theme="b">
-
-        <div>
+      </div>
+        <div class="ui-field-contain"> 
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 <legend>Cost:</legend>
                 <input type="checkbox" name="low-cost" id="low-cost">
@@ -909,8 +916,8 @@
                 <option value="on" selected="">Yes</option>
             </select>
         </div> -->
-        <div >
-            <label for="appointment">Appointments</label>
+        <div class="ui-field-contain">
+            <label for="appointment">Appointments:</label>
             <select name="appointment" id="appointment" data-role="slider" data-mini="true">
                 <option value="off">No</option>
                 <option value="on" selected="">Yes</option>
