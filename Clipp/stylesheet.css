@@ -185,6 +185,8 @@ img.border {
     border: 2px solid black;
     float: left;
     margin-left: 5px;
+    width: 75px;
+    height: 75px;
 }
 
 #public_profile .ui-content h4{
@@ -200,6 +202,8 @@ img.border {
     border: 2px solid black;
     float: left;
     margin-left: 5px;
+    width: 75px;
+    height: 75px;
 }
 
 img.space {
