@@ -53,7 +53,7 @@ h3 {
 }
 
 .feedback-list li {
-    margin-bottom: 8px !important;
+    margin-bottom: 1% !important;
 }
 
 /*Make div scrollable */
@@ -63,10 +63,7 @@ h3 {
     max-height: 400px;
 }
 
-.feedback-list p {
-    text-align: left;
-    vertical-align: middle;
-}
+
 
 /*MAHAN*/
 
@@ -115,10 +112,11 @@ h3 {
     height:110px;
 }
 
-.pop {
+.cut_image {
     width:120px;
     height:170px; 
 }
+
 .img-wrap {
     position: relative;
 }
@@ -159,7 +157,6 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
-<<<<<<< HEAD
 
 /*DIONDRA Profile Section*/
 #profile .ui-content h4{
@@ -249,5 +246,83 @@ p.small_bio{
     top: 2px;
     left: 1px;
 }
-=======
->>>>>>> cf0c94ddb3f497f92081129226a3c71a7d0d9334
+
+/* Matthew's edits to CSS  */
+
+#nav-menu-subtitle {
+    margin-top: 0;
+}
+
+#review-popup-img {
+    width: 55%;
+}
+
+#clipp-image {
+    width: 11%;
+}
+
+.feedback-testimonial {
+    margin-top: 6% !important;
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 80% !important;
+    text-align: center;
+}
+
+.feedback-list .delete-feedback {
+    background: lightgrey !important;
+}
+
+#feedback-date {
+    right: 1.333em !important;
+}
+
+#discover-button {
+    width: 100%;
+}
+
+#fbarbersearch {
+    font-size: 15px;
+}
+
+#feedback-form-name {
+    color: red;
+}
+
+.results-image {
+    margin: 1%;
+    width: 17%;
+    border-color: black !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+}
+
+#result-text {
+    color: firebrick;
+    font-weight: 600;
+    text-align: center;
+}
+
+#result-profile-message {
+    white-space: normal;
+    text-align: center;
+    clear: left;
+}
+
+.search-results-list li {
+    margin-bottom: 3% !important;
+}
+
+
+#discover_barber .ui-field-contain {
+    padding:2px !important;
+    border-bottom: 0px !important;
+}
+
+#discover_client .ui-field-contain {
+    padding:2px !important;
+    border-bottom: 0px !important;
+}
+
+
+
