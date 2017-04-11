@@ -17,15 +17,16 @@
         var profile_cuts = [];
 
         function loadCuts() {
-            $("#cuts_content").empty();
-            var string2 = ""
+            $("#cuts_pics").empty();
+
             for (i = 0; i < cuts.length; i++) { 
                 var node = document.getElementById('cuts_content');
-                // var string1 = '<a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img onclick="addCutToProfile(\'' + cuts[i] + '\')" class="add_cuts" src="pics/badges/add.ico"/> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
-                var string1 = ' <a href=#confirm' + (i+1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
-                string2 += '<div data-role="popup" id=' +  cuts[i] + ' data-overlay-theme="b" data-theme="b" data-corners="false"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' style="max-height:512px;" alt="Paris, France"> </div>'
+
+                var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+
                 node.innerHTML += string1;
             }
+
         }
 
         function addCutToProfile (id) {
@@ -378,6 +379,11 @@
     </div>
 
     <div id="cuts_content"data-role="content">
+
+        <div id="cuts_pics">
+
+        </div>
+
         <div data-role="popup" id="confirm1" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
              Do you want to add picture to profile?
@@ -462,6 +468,7 @@
         <div data-role="popup" id="haircut9" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="cut_image" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
+
 
     </div>
 </div>
