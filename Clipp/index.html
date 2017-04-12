@@ -39,9 +39,24 @@
             $("#" + id).empty();
                 for (i = 0; i < profile_cuts.length; i++) { 
                     var node = document.getElementById(id);
-                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1;
+                    var div0 = '<div class="portfolio_photo">'
+                    var div1 = '</div>'
+                    var string0 = '<a href="#profile" onclick="deleteProfileCuts(\'' + i + '\')"> <img class="delete_portfolio" src="pics/badges/delete.ico"/></a>';
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    
+                    if (id == "portfolio_content") {
+                        node.innerHTML += div0 + string0 + string1 + div1;
+                    }
+                    
+                    else {
+                        node.innerHTML += string1;
+                    }
             }
+        }
+        
+        function deleteProfileCuts(index) {
+            profile_cuts.splice(index, 1);
+            printProfileCuts('portfolio_content');
         }
 
     </script>
