@@ -20,7 +20,7 @@
             $("#cuts_pics").empty();
 
             for (i = 0; i < cuts.length; i++) { 
-                var node = document.getElementById('cuts_content');
+                var node = document.getElementById('cuts_pics');
 
                 var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
 
@@ -35,20 +35,11 @@
             }
         }
 
-        function printProfileCuts() {
-            $("#portfolio_content").empty();
+        function printProfileCuts(id) {
+            $("#" + id).empty();
                 for (i = 0; i < profile_cuts.length; i++) { 
-                    var node = document.getElementById("portfolio_content");
+                    var node = document.getElementById(id);
                     var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1;
-            }
-        }
-        
-        function printPublicProfileCuts() {
-            $("#public_portfolio_content").empty();
-                for (i = 0; i < profile_cuts.length; i++) { 
-                    var node = document.getElementById("public_portfolio_content");
-                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
                     node.innerHTML += string1;
             }
         }
@@ -78,7 +69,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
@@ -317,7 +308,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick='printProfileCuts()'>Profile</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -326,7 +317,7 @@
     </div>
 
     <div data-role="content">
-        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printPublicProfileCuts()">Preview Profile ></a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content')">Preview Profile ></a>
         <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
         <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
@@ -360,7 +351,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -377,7 +368,7 @@
         </div>
     </div>
 
-    <div id="cuts_content"data-role="content">
+    <div id="cuts_content" data-role="content">
 
         <div id="cuts_pics">
 
@@ -481,7 +472,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -596,7 +587,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -866,7 +857,7 @@
         <div style="clear: both;"></div>
         <div class="lower_section">
             <h4>Portfolio</h4>
-            <div id="public_portfolio_content"></div>
+            <div id="public_portfolio_client_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
             <h4>Clipps</h4>
@@ -1042,7 +1033,7 @@
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1055,7 +1046,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1068,7 +1059,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1081,7 +1072,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1094,7 +1085,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1107,7 +1098,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
