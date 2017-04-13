@@ -262,11 +262,44 @@ p.name {
     left: 10px;
 }
 
+/*#profile .editable{
+    border: 3px groove gainsboro;
+    position: relative;
+    top: -15px;
+    left: 10px;
+    float: left;
+    width: 240px;
+    height: 40px;
+    background-color: whitesmoke;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+textarea.small_bio{
+    color: black;
+    font-size: .8em;
+    text-align: left;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    width: 240px !important;
+    height: 40px !important;
+    resize: none !important;
+    border: none;
+    background-color: transparent !important;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 p.small_bio{
     color: black;
     font-size: .8em;
     text-align: left;
     position: relative;
+    bottom: 10px;
     left: 10px;
 }
 
