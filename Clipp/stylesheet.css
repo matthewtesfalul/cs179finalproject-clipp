@@ -236,6 +236,13 @@ img.border {
     right: -15px;
 }
 
+#testimonials_content img.delete_testimonials{
+    position: absolute;
+    z-index: 1;
+    width: 14px;
+    right: -7px;
+}
+
 #portfolio_content .portfolio_photo{
     position: relative;
     float: left;
@@ -292,6 +299,11 @@ img.space {
 }
 
 #public_profile .testimonial {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+#public_profile_client .testimonial {
     font-family: monospace;
     font-weight: 500;
 }
