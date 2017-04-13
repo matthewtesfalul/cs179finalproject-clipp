@@ -22,7 +22,8 @@
             for (i = 0; i < cuts.length; i++) { 
                 var node = document.getElementById('cuts_pics');
 
-                var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+                 var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+
 
                 node.innerHTML += string1;
             }
