@@ -47,7 +47,7 @@
         var profile_testimonials = [];
 
         function openPopup(id) {
-            $("#popup-content").html('<p> ' + review_dates[id] + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + review_testimonials[id] + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a><a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>');
+            $("#popup-content").html('<p> ' + review_dates[id] + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + review_testimonials[id] + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a>');
 
             $("#popup-cancel-btn").removeClass("ui-btn-active");
 
@@ -67,9 +67,33 @@
 
         function addTestimonialToProfile(id) {
             console.log("added");
-            if (profile_testimonials.length < 4) {
+            if (profile_testimonials.length < 2) {
                 profile_testimonials.push(id);
             }
+        }
+        
+        function printTestimonials(id) {
+            $("#" + id).empty();
+                for (i = 0; i < profile_testimonials.length; i++) { 
+                    var node = document.getElementById(id);
+                    var div0 = '<div class="testimonial_div">'
+                    var div1 = '</div>'
+                    var string0 = '<a href="#profile" onclick="deleteProfileTestimonials(\'' + i + '\')"> <img class="delete_testimonials" src="pics/badges/delete.ico"/></a>';
+                    var string1 = '<p class="testimonial">"' + review_testimonials[profile_testimonials[i]] + '"</p>'
+                    
+                    if (id == "testimonials_content") {
+                        node.innerHTML += string0 + string1;
+                    }
+                    
+                    else {
+                        node.innerHTML += string1;
+                   }
+            }
+        }
+        
+        function deleteProfileTestimonials(index) {
+            profile_testimonials.splice(index, 1);
+            printTestimonials('testimonials_content');
         }
 
         var cuts = ["haircut1","haircut2","haircut3","haircut4","haircut5","haircut6","haircut7","haircut8","haircut9"];
@@ -256,6 +280,7 @@
 
         $(document).ready(function() { // When entering pagetwo
             loadReviews();
+            loadCuts();
         });
 
     </script>
@@ -283,7 +308,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps();">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
                 <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
@@ -473,7 +498,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content'); printProfileClipps();">Profile</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -482,7 +507,7 @@
     </div>
 
     <div data-role="content">
-        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps();">Preview Profile ></a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">Preview Profile ></a>
         <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
         <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
@@ -499,8 +524,7 @@
             <!-- clear float -->
             <div style="clear: both;"></div>
             <h4>Testimonials <a href="#feedback" data-transition="none"><img class="add" src="pics/badges/add.ico"/></a></h4>
-            <p class="testimonial">"Best in town for fades and mohawks"</p>
-            <p class="testimonial">"Wish I found this place sooner!"</p>
+            <div id="testimonials_content"></div>
         </div>
     </div>
 </div>
@@ -512,7 +536,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps();">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -630,7 +654,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps();">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -728,7 +752,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps();">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -909,8 +933,7 @@
             <!-- clear float -->
             <div style="clear: both;"></div>
             <h4>Testimonials</h4>
-            <p class="testimonial">"Best in town for fades and mohawks"</p>
-            <p class="testimonial">"Wish I found this place sooner!"</p>
+            <div id="public_testimonials_content"></div>
         </div>
     </div>
 </div>
@@ -940,8 +963,7 @@
             <!-- clear float -->
             <div style="clear: both;"></div>
             <h4>Testimonials</h4>
-            <p class="testimonial">"Best in town for fades and mohawks"</p>
-            <p class="testimonial">"Wish I found this place sooner!"</p>
+            <div id="public_testimonials_client_content"></div>
         </div>
     </div>
 </div>
@@ -1103,7 +1125,7 @@
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1116,7 +1138,8 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1129,7 +1152,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1142,7 +1165,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1155,7 +1178,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1168,7 +1191,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps();">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
