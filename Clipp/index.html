@@ -13,6 +13,67 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script type="text/javascript">
+        // var reviews = [
+        //     {
+        //         "id": 0, 
+        //         "testimonial": "Wish I found this place sooner!!! Girls watch out",
+        //         "date": "May 15, 2016",
+
+        //     }
+        // ]
+
+        var reviews = ["review0", "review1", "review2", "review3", "review4", "review5"];
+        var review_testimonials = [
+            "Wish I found this place sooner!!! Girls watch out",
+            "Best in town for fades and mohawks",
+            "Service was quick, barber was friendly",
+            "Lovely, funny barber. Great at cutting my childs hair",
+            "Decent haircutting skills. But not polite and rushed through my cut",
+            "20 years. I am still amazed at the great service and cuts"];
+
+        var review_dates = [
+            "May 15, 2016",
+            "Jan 14, 2016",
+            "October 25, 2015",
+            "July 5, 2015",
+            "April 30, 2015",
+            "December 22, 2014"
+        ];
+
+        var review_endorsements = [
+            '<center><div class="clipps-container"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"></div></center>'
+        ];
+
+        var profile_testimonials = [];
+
+        function openPopup(id) {
+            $("#popup-content").html('<p> ' + review_dates[id] + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + review_testimonials[id] + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a><a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>');
+
+            $("#popup-cancel-btn").removeClass("ui-btn-active");
+
+            $("#review-popup").popup("open");
+        }
+
+        function loadReviews() {
+            $("#feedbacklists").empty();
+
+            var node = document.getElementById("feedbacklists");
+            for (i = 0; i < reviews.length; i++) {
+                
+                // var string1 = '<li> <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop"> <p id="feedback-date" class="ui-li-aside"> ' + review_dates[i] + ' </p> <p class="feedback-testimonial"><strong> ' + review_testimonials[i] + ' </strong></p> <center><div class="clipps-container"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> </div></center> </a> <a class="delete-feedback" href="#"></a> </li>'   
+
+                var string1 = '<li> <a href="#" id="review' + i +'" onclick="openPopup('+i+')"> <p id="feedback-date" class="ui-li-aside"> ' + review_dates[i] + ' </p> <p class="feedback-testimonial"><strong> ' + review_testimonials[i] + ' </strong></p> <center><div class="clipps-container"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> <img id = "clipp-image" src="pics/badge_mockup.png"> </div></center> </a> <a class="delete-feedback" href="#"></a> </li>'   
+                node.innerHTML += string1;
+            }
+        }
+
+        function addTestimonialToProfile(id) {
+            console.log("added");
+            if (profile_testimonials.length < 4) {
+                profile_testimonials.push(id);
+            }
+        }
+
         var cuts = ["haircut1","haircut2","haircut3","haircut4","haircut5","haircut6","haircut7","haircut8","haircut9"];
         var profile_cuts = [];
 
@@ -20,13 +81,12 @@
             $("#cuts_pics").empty();
 
             for (i = 0; i < cuts.length; i++) { 
-                var node = document.getElementById('cuts_content');
+                var node = document.getElementById('cuts_pics');
 
-                var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>'
+                var string1 = ' <a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a> <a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>';
 
                 node.innerHTML += string1;
             }
-
         }
 
         function addCutToProfile (id) {
@@ -35,23 +95,33 @@
             }
         }
 
-        function printProfileCuts() {
-            $("#portfolio_content").empty();
+        function printProfileCuts(id) {
+            $("#" + id).empty();
                 for (i = 0; i < profile_cuts.length; i++) { 
-                    var node = document.getElementById("portfolio_content");
-                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1;
+                    var node = document.getElementById(id);
+                    var div0 = '<div class="portfolio_photo">'
+                    var div1 = '</div>'
+                    var string0 = '<a href="#profile" onclick="deleteProfileCuts(\'' + i + '\')"> <img class="delete_portfolio" src="pics/badges/delete.ico"/></a>';
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    
+                    if (id == "portfolio_content") {
+                        node.innerHTML += div0 + string0 + string1 + div1;
+                    }
+                    
+                    else {
+                        node.innerHTML += string1;
+                    }
             }
         }
         
-        function printPublicProfileCuts() {
-            $("#public_portfolio_content").empty();
-                for (i = 0; i < profile_cuts.length; i++) { 
-                    var node = document.getElementById("public_portfolio_content");
-                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto border space" onclick="addCutToProfile(\'' + profile_cuts[i] + '\')"  src="pics/' + profile_cuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
-                    node.innerHTML += string1;
-            }
+        function deleteProfileCuts(index) {
+            profile_cuts.splice(index, 1);
+            printProfileCuts('portfolio_content');
         }
+
+        $(document).ready(function() { // When entering pagetwo
+            loadReviews();
+        });
 
     </script>
 
@@ -78,7 +148,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
@@ -89,69 +159,20 @@
     <div data-role="content">
         <h3 id="nav-menu-subtitle">Feedback</h3>
 
-        <ul class="feedback-list" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
-            <li> 
-                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
-                    <p id="feedback-date" class="ui-li-aside">May 15, 2016</p>                    
-                    <p class="feedback-testimonial"><strong>Best in town for fades and mohawks</strong></p>
-                    <center><div class="clipps-container"> 
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                    </div></center>
-                </a>
-                <a class="delete-feedback" href="#"></a>
-            </li>
-            <li> 
-                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
-                    <p id="feedback-date" class="ui-li-aside">Jan 1, 2016</p>                    
-                    <p class="feedback-testimonial"><strong>Wish I found this place sooner!!! Girls watch out</strong></p>
-                    <center><div class="clipps-container"> 
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                    </div></center>
-                </a>
-                <a class="delete-feedback" href="#"></a>
-            </li>
-            <li> 
-                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
-                    <p id="feedback-date" class="ui-li-aside">December 30, 2014</p>                    
-                    <p class="feedback-testimonial"><strong>Service was quick, barber was friendly, and the cut was spectacular</strong></p>
-                    <center><div class="clipps-container"> 
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                    </div></center>
-                </a>
-                <a class="delete-feedback" href="#"></a>
-            </li>
-            <li> 
-                <a href="#review-popup" data-rel="popup" data-position-to="window" data-transition="pop">
-                    <p id="feedback-date" class="ui-li-aside">March 22, 2013</p>                    
-                    <p class="feedback-testimonial"><strong>Best in town for fades and mohawks</strong></p>
-                    <center><div class="clipps-container"> 
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                        <img id = "clipp-image" src="pics/badge_mockup.png">
-                    </div></center>
-                </a>
-                <a class="delete-feedback" href="#"></a>
-            </li>
+        <ul class="feedback-list" id="feedbacklists" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
         </ul>
     </div>
     <div data-role="popup" id="review-popup" data-theme="a" data-overlay-theme="b" class="ui-content">
-        <p>May 15, 2016</p>
-        <img id="review-popup-img" src="pics/haircut2.png">
-        <div id="review-text">
-            <p><strong>Best in town for fades and mohawks</strong></p>
-        </div>
-        <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>
-        <a href="#feedback" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+        <span id="popup-content">
+           <!--  <p>May 15, 2016</p>
+            <img id="review-popup-img" src="pics/haircut2.png">
+            <div id="review-text">
+                <p><strong>Best in town for fades and mohawks</strong></p>
+            </div>
+            <a href="#feedback" data-role="button" data-icon="delete" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>  -->
+        </span>
+        <a href="#feedback" id="popup-cancel-btn" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+
     </div>    
 </div>
 
@@ -317,7 +338,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick='printProfileCuts()'>Profile</a></li>
+                <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -326,7 +347,7 @@
     </div>
 
     <div data-role="content">
-        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printPublicProfileCuts()">Preview Profile ></a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content')">Preview Profile ></a>
         <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
         <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
@@ -360,7 +381,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -375,7 +396,6 @@
             <label for="search-basic">Search For Cut:</label>
             <input data-type="search" name="search" id="search-basic" value="" />
         </div>
-
     </div>
 
     <div id="cuts_content"data-role="content">
@@ -467,7 +487,6 @@
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="cut_image" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
 
-
     </div>
 </div>
 
@@ -480,7 +499,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -595,7 +614,7 @@
             </center>
         <div data-role="navbar">
             <ul>
-                <li><a href="#profile" data-transition="none" onclick="printProfileCuts()">Profile</a></li>
+                <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist">Clipps</a></li>
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
@@ -865,7 +884,7 @@
         <div style="clear: both;"></div>
         <div class="lower_section">
             <h4>Portfolio</h4>
-            <div id="public_portfolio_content"></div>
+            <div id="public_portfolio_client_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
             <h4>Clipps</h4>
@@ -1041,7 +1060,7 @@
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1054,7 +1073,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1067,7 +1086,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1080,7 +1099,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1093,7 +1112,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>
@@ -1106,7 +1125,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#public_profile_client">
+                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content')">>
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
                         <p id="result-text">Cool Barbershop Name</p>

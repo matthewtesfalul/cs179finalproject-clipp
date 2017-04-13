@@ -177,11 +177,29 @@ img.border {
     float: left;
 }
 
-#portfolio_content img{
+#portfolio_content img.popphoto{
     position: relative;
     border: 2px solid black;
     float: left;
     margin-left: 5px;
+    width: 75px;
+    height: 75px;
+}
+
+#portfolio_content img.delete_portfolio{
+    position: absolute;
+    z-index: 1;
+    width: 14px;
+    top: -5px;
+    right: -15px;
+}
+
+#portfolio_content .portfolio_photo{
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    width: 75px;
+    height: 75px;
 }
 
 #public_profile .ui-content h4{
@@ -197,6 +215,25 @@ img.border {
     border: 2px solid black;
     float: left;
     margin-left: 5px;
+    width: 75px;
+    height: 75px;
+}
+
+#public_profile_client .ui-content h4{
+    background-color: lightgrey!important;
+    text-shadow: none;
+    color: black;
+    padding: 3px;
+    border: 3px solid black;
+}
+
+#public_portfolio_client_content img{
+    position: relative;
+    border: 2px solid black;
+    float: left;
+    margin-left: 5px;
+    width: 75px;
+    height: 75px;
 }
 
 img.space {
