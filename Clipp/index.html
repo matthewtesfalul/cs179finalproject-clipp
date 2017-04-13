@@ -131,10 +131,12 @@
 				
 				// max out at six
                 profile_clipps.push(id);
+				// change the clipp to added in the global dict
+				clippsadded[id] = true;
+				
             }
 			
-			// change the clipp to added in the global dict
-			clippsadded[id] = true;
+
 			
 			// refresh the completed clipps page as well as the profile page
 			loadClipps();
