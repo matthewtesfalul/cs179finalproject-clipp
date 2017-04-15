@@ -346,7 +346,7 @@ p.small_bio{
 }
 
 #clipp-image {
-    width: 11%;
+    width: 45px;
 }
 
 .feedback-testimonial {
@@ -379,7 +379,7 @@ p.small_bio{
 
 .results-image {
     margin: 1%;
-    width: 17%;
+    width: 100%;
     border-color: black !important;
     border-style: solid !important;
     border-width: 2px !important;
