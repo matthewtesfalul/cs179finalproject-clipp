@@ -16,47 +16,61 @@
         var reviews = [
             {
                 "id": 0, 
+                "haircut_id":"haircut1",
                 "testimonial": "Wish I found this place sooner!!! Girls watch out",
                 "date": "May 15, 2016",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
             }, 
             {
                 "id": 1, 
+                "haircut_id":"haircut2",
                 "testimonial": "Best in town for fades and mohawks",
                 "date": "Jan 14, 2016",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp7.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp7.png"> </div></center>',
+                "endorsements_list":["Speed", "Funny"]
             }, 
             {
                 "id": 2, 
+                "haircut_id":"haircut3",
                 "testimonial": "Service was quick, barber was friendly",
                 "date": "October 25, 2015",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp9.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp9.png"> </div></center>',
+                "endorsements_list":["Gelling"]
             }, 
             {
-                "id": 3, 
+                "id": 3,
+                "haircut_id":"haircut4", 
                 "testimonial": "Lovely, funny barber. Great at cutting my childs hair",
                 "date": "July 5, 2015",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
+
             }, 
             {
                 "id": 4, 
+                "haircut_id":"haircut5",
                 "testimonial": "Decent haircutting skills. But not polite and rushed through my cut",
                 "date": "April 30, 2015",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp5.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp5.png"> </div></center>',
+                "endorsements_list":["Speed", "Shave", "Fade", "Pattern"]
+
             }, 
             {
                 "id": 5, 
+                "haircut_id":"haircut6",
                 "testimonial": "20 years. I am still amazed at the great service and cuts",
                 "date": "December 22, 2014",
-                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
             }
         ];
 
 
         var profile_testimonials = [];
 
-        function openPopup(date, testimonial, id) {
-            $("#popup-content").html('<p> ' + date + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + testimonial + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a><a href="#feedback" data-role="button" onclick="deleteReview(' + id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>');
+        function openPopup(date, testimonial, id, haircut_id) {
+            $("#popup-content").html('<p> ' + date + ' </p><center><img id="review-popup-img" src="pics/' + haircut_id + '.jpg"></center> <div id="review-text"> <p><strong> ' + testimonial + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a><a href="#feedback" data-role="button" onclick="deleteReview(' + id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>');
 
             $("#popup-cancel-btn").removeClass("ui-btn-active");
 
@@ -78,7 +92,7 @@
 
             var node = document.getElementById("feedbacklists");
             for (i = 0; i < reviews.length; i++) {
-                var arguments = '"'+reviews[i].date + '", "' + reviews[i].testimonial + '", "' + reviews[i].id +'"'
+                var arguments = '"'+reviews[i].date + '", "' + reviews[i].testimonial + '", "' + reviews[i].id + '", "' + reviews[i].haircut_id +'"' 
                 var string1 = '<li class="review_container' + reviews[i].id + '"> <a href="#" id="review' + reviews[i].id +'" onclick=' + "'" + 'openPopup(' + arguments + ')' + "'" + '> <p id="feedback-date" class="ui-li-aside"> ' + reviews[i].date + ' </p> <p class="feedback-testimonial"><strong> ' + reviews[i].testimonial + ' </strong></p> ' + reviews[i].endorsements + ' </a> <a class="delete-feedback" href="#feedback" onclick="deleteReview(' + reviews[i].id + ')"></a> </li>'   
                 node.innerHTML += string1;
             }
