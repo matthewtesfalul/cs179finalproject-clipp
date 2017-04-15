@@ -98,7 +98,7 @@
                     var div0 = '<div class="testimonial_div">'
                     var div1 = '</div>'
                     var string0 = '<a href="#profile" onclick="deleteProfileTestimonials(\'' + i + '\')"> <img class="delete_testimonials" src="pics/badges/delete.ico"/></a>';
-                    var string1 = '<p class="testimonial">"' + review_testimonials[profile_testimonials[i]] + '"</p>'
+                    var string1 = '<p class="testimonial">"' + reviews[i].testimonial + '"</p>'
                     
                     if (id == "testimonials_content") {
                         node.innerHTML += string0 + string1;
