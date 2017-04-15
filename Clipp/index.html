@@ -13,45 +13,64 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script type="text/javascript">
-        // var reviews = [
-        //     {
-        //         "id": 0, 
-        //         "testimonial": "Wish I found this place sooner!!! Girls watch out",
-        //         "date": "May 15, 2016",
-
-        //     }
-        // ]
-
-        var reviews = ["review0", "review1", "review2", "review3", "review4", "review5"];
-        var review_testimonials = [
-            "Wish I found this place sooner!!! Girls watch out",
-            "Best in town for fades and mohawks",
-            "Service was quick, barber was friendly",
-            "Lovely, funny barber. Great at cutting my childs hair",
-            "Decent haircutting skills. But not polite and rushed through my cut",
-            "20 years. I am still amazed at the great service and cuts"];
-
-        var review_dates = [
-            "May 15, 2016",
-            "Jan 14, 2016",
-            "October 25, 2015",
-            "July 5, 2015",
-            "April 30, 2015",
-            "December 22, 2014"
+        var reviews = [
+            {
+                "id": 0, 
+                "testimonial": "Wish I found this place sooner!!! Girls watch out",
+                "date": "May 15, 2016",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }, 
+            {
+                "id": 1, 
+                "testimonial": "Best in town for fades and mohawks",
+                "date": "Jan 14, 2016",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }, 
+            {
+                "id": 2, 
+                "testimonial": "Service was quick, barber was friendly",
+                "date": "October 25, 2015",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }, 
+            {
+                "id": 3, 
+                "testimonial": "Lovely, funny barber. Great at cutting my childs hair",
+                "date": "July 5, 2015",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }, 
+            {
+                "id": 4, 
+                "testimonial": "Decent haircutting skills. But not polite and rushed through my cut",
+                "date": "April 30, 2015",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }, 
+            {
+                "id": 5, 
+                "testimonial": "20 years. I am still amazed at the great service and cuts",
+                "date": "December 22, 2014",
+                "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>'
+            }
         ];
 
-        var review_endorsements = [
-            '<center><div class="clipps-container"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"><img id = "clipp-image" src="pics/badge_mockup.png"></div></center>'
-        ];
 
         var profile_testimonials = [];
 
-        function openPopup(id) {
-            $("#popup-content").html('<p> ' + review_dates[id] + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + review_testimonials[id] + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a>');
+        function openPopup(date, testimonial, id) {
+            $("#popup-content").html('<p> ' + date + ' </p><img id="review-popup-img" src="pics/haircut2.png"> <div id="review-text"> <p><strong> ' + testimonial + ' </strong></p> </div> <a href="#feedback" data-role="button" onclick="addTestimonialToProfile('+ id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Add testimonial to profile</a><a href="#feedback" data-role="button" onclick="deleteReview(' + id + ')" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Delete</a>');
 
             $("#popup-cancel-btn").removeClass("ui-btn-active");
 
             $("#review-popup").popup("open");
+        }
+
+        function deleteReview(id_num) {
+            for (i = 0; i < reviews.length; i++) {
+                if (reviews[i].id == id_num) {
+                    reviews.splice(i, 1);
+                    $(".review_container"+id_num).hide();
+                    return
+                }
+            }
         }
 
         function loadReviews() {
@@ -59,8 +78,8 @@
 
             var node = document.getElementById("feedbacklists");
             for (i = 0; i < reviews.length; i++) {
-    
-                var string1 = '<li> <a href="#" id="review' + i +'" onclick="openPopup('+i+')"> <p id="feedback-date" class="ui-li-aside"> ' + review_dates[i] + ' </p> <p class="feedback-testimonial"><strong> ' + review_testimonials[i] + ' </strong></p> <center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center> </a> <a class="delete-feedback" href="#"></a> </li>'   
+                var arguments = '"'+reviews[i].date + '", "' + reviews[i].testimonial + '", "' + reviews[i].id +'"'
+                var string1 = '<li class="review_container' + reviews[i].id + '"> <a href="#" id="review' + reviews[i].id +'" onclick=' + "'" + 'openPopup(' + arguments + ')' + "'" + '> <p id="feedback-date" class="ui-li-aside"> ' + reviews[i].date + ' </p> <p class="feedback-testimonial"><strong> ' + reviews[i].testimonial + ' </strong></p> ' + reviews[i].endorsements + ' </a> <a class="delete-feedback" href="#feedback" onclick="deleteReview(' + reviews[i].id + ')"></a> </li>'   
                 node.innerHTML += string1;
             }
         }
@@ -374,8 +393,7 @@
               <input type="text" name="cnum" id="cnum">
 
             </form>
-        <br>
-        <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
+         <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
     </div>
 </div>
     
@@ -399,10 +417,10 @@
 
               <fieldset data-role="controlgroup">
               <legend>Choose your gender:</legend>
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="male" value="male">
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="female" value="female">
+                <label for="male1">male</label>
+                <input type="radio" name="gender" id="male1" value="male1">
+                <label for="female1">female</label>
+                <input type="radio" name="gender" id="female1" value="female1">
               </fieldset>
 
             </form>
