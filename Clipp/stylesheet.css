@@ -60,7 +60,7 @@ h3 {
 .feedback-list {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    max-height: 400px;
+    max-height: 500px;
 }
 
 /* CUTS SECTION */
