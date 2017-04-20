@@ -440,7 +440,7 @@ img.front {
     position: relative;
     border: 2px solid black;
     float: left;
-    margin-right: 1%;
+    margin-right: 0;
     width: 20%;
     height: 75px;
 }
@@ -457,7 +457,7 @@ img.front {
     position: relative;
     border: 2px solid black;
     float: left;
-    margin-right: 1%;
+    margin-right: 0;
     width: 20%;
     height: 75px;
 }
