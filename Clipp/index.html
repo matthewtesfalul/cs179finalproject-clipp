@@ -162,12 +162,15 @@
 
             for (i = 0; i < cuts.length; i++) { 
                 var node = document.getElementById('cuts_pics');
-
+                
+                var div0 = '<div class="cuts_photo">'
+                var div1 = '</div>'
+                
                 var string1 = '<a href="#" onclick="deleteCuts(\'' + cuts[i] + '\')"> <img class="delicon" src="pics/badges/delete.ico"/></a>'
 
                 if (profile_cuts.indexOf(cuts[i]) != -1){
                     
-                    var string2 = '<img class="add" src="pics/badges/check.png"/>';
+                    var string2 = '<img class="add_cuts" src="pics/badges/check.png"/>';
                 }
                 
                 // if it's not added to the profile do a plus sign with a link to add
@@ -181,7 +184,7 @@
                 var string3 = '<a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>';
 
                 / * node.innerHTML += string1 ; */
-                node.innerHTML += string1 + string2 + string3;
+                node.innerHTML += div0 + string1 + string2 + string3 + div1;
             }
         }
 
@@ -633,6 +636,7 @@
     </div>
 
     <div id="cuts_content"data-role="content">
+        
         <div id="cuts_pics">
         </div>
 
