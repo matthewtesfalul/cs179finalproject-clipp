@@ -150,10 +150,11 @@
         var profile_cuts = [];
 
         function deleteCuts(cut) {
-            var index = cuts.indexOf(cut);
-            if (index > -1) {
-                cuts.splice(index, 1);
-            } 
+            for (i = 0; i < cuts.length; i++) {
+                if (cuts[i] == cut) {
+                    cuts.splice(i, 1);
+                }
+            }
             loadCuts();
         }
 
@@ -173,7 +174,7 @@
                 // if it's not added to the profile do a plus sign with a link to add
                 else{
                     
-                    var string2 = '<a href=#confirm' + (i + 1) + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a>';
+                    var string2 = '<a href=#confirm' + cuts[i][7] + ' data-rel="popup"> <img class="add_cuts" src="pics/badges/add.ico"/> </a>';
                     
                     // var string3 = '<img class="add" src="pics/badges/add.ico"/>';
                 }
@@ -397,7 +398,7 @@
     </div>
 
     <div data-role="content">
-        <h3 id="nav-menu-subtitle">Feedback</h3>
+        <h3>Feedback</h3>
 
         <ul class="feedback-list" id="feedbacklists" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
         </ul>
@@ -741,7 +742,7 @@
         </div>
     </div>
     <div data-role="content">
-        <h3>Clipps</h3>
+        <h3 >Clipps</h3>
 		
 		<!-- The completed vs in progress navbar -->
 		<div data-role="navbar">
@@ -1371,5 +1372,5 @@
 </div>
 
 
-</body>
+</body> 
 </html>
