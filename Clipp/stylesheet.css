@@ -63,6 +63,24 @@ h3 {
     max-height: 500px;
 }
 
+/* CUTS SECTION */
+.add_cuts {
+    position: relative; 
+    z-index: 1;
+    width: 14px;
+    top: -100px;
+    left: 2px;
+}
+
+.delicon {
+    position: relative; 
+    z-index:1;
+    top:-100px;
+    left:120px;
+    width:14px;
+}
+
+/* END OF CUTS SECTION */ 
 
 
 /*MAHAN*/
@@ -110,13 +128,6 @@ a {
 	width:45px;
 }
 
-.add_cuts {
-    position: relative;
-    z-index: 1;
-    width: 14px;
-    top: -100px;
-    left: 10px;
-}
 
 #portfolio_clipp {
     position: relative;
@@ -411,5 +422,6 @@ p.small_bio{
     padding:2px !important;
     border-bottom: 0px !important;
 }
+
 
 
