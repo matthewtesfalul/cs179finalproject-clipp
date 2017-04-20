@@ -6,54 +6,203 @@ h3 {
     text-align: center;
 }
 
+h3.border {
+    background-color: white;
+    border: grey solid 2px;
+}
+
 .ui-page .ui-header {
     background: white !important;
 }
 
 #start .ui-content{
-    background: white !important;
-    transform: translateY(50%);
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(25%);
 }
 
 #start {
-    background: white !important;
+    background-image: url(pics/barbershop.jpeg) !important;
+    background-size: cover !important;
+    background-position: center!important;
 }
+
 #barber_home .ui-content{
     background: white !important;
     transform: translateY(50%);
 }
 
 #barber_home {
-    background: white !important;
+    background-image: url(pics/wood_screen.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
-#client_home .ui-content{
-    background: white !important;
-    transform: translateY(50%);
+#barber_home .ui-content {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(25%);
 }
 
 #client_home {
-    background: white !important;
+    background-image: url(pics/wood_screen.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#client_home .ui-content{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(25%);
 }
 
 #login_barber{
-    background: white !important;
+    background-image: url(pics/barbershop_login.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#login_barber .ui-content{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(20%);
 }
 
 #login_client{
-    background: white !important;
+    background-image: url(pics/barbershop_login.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#login_client .ui-content{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(20%);
 }
 
 #register_barber{
-    background: white !important;
+    background-image: url(pics/register.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#register_barber .ui-content{
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 #register_client{
-    background: white !important;
+    background-image: url(pics/register.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#register_client .ui-content{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+#profile{
+    background-image: url(pics/cuts.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#public_profile{
+    background-image: url(pics/profile.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#discover_barber{
+    background-image: url(pics/discover_background.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#discover_barber .ui-content{
+    background-color: rgba(255, 255, 255, 0.7) !important;
+     transform: translateY(10%);
+}
+
+#discover_client{
+    background-image: url(pics/discover_background.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#discover_client .ui-content{
+    background-color: rgba(255, 255, 255, 0.7) !important;
+     transform: translateY(10%);
+}
+
+#cuts{
+    background-image: url(pics/cuts.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#clipps{
+    background-image: url(pics/cuts.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#clipps-completed{
+    background-image: url(pics/cuts.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#give_feedback{
+    background-image: url(pics/give_feedback.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#client_search_results{
+    background-image: url(pics/give_feedback.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#barber_search_results{
+    background-image: url(pics/give_feedback.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.profile{
+    background-image: url(pics/profile.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#feedback{
+    background-image: url(pics/cuts.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#give_feedback_form{
+     background-image: url(pics/give_feedback.jpeg) !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
 .feedback-list li {
     margin-bottom: 1% !important;
+}
+
+/* Home Pages */
+.home_photo {
+    width: 85%;
+    height: 125px;
+    float: left;
+    margin-right: 0%;
+    margin-left: 8%;
+    margin-top: 5%;
+    border: 7px;
+}
+
+.home_caption {
+    font-weight: bold;
+    text-align: center;
+    font: arial, sans-serif;
+    color: black;
 }
 
 /*Make div scrollable */
@@ -162,6 +311,11 @@ a {
 #clipptable {
 	
 	font-size:14px;
+    background-color: white;
+}
+
+#clippsgrid {
+    background-color: white;
 }
 
 
@@ -236,6 +390,10 @@ img.border {
     position: relative;
     border: 3px solid black;
     float: left;
+}
+
+img.front {
+     z-index: 1;
 }
 
 #portfolio_content img.popphoto{
@@ -314,17 +472,17 @@ img.space {
 
 #profile .testimonial {
     font-family: monospace;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 #public_profile .testimonial {
     font-family: monospace;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 #public_profile_client .testimonial {
     font-family: monospace;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 p.name {
@@ -333,6 +491,8 @@ p.name {
     text-align: left;
     position: relative;
     left: 10px;
+    background-color: white;
+    border: black solid 2px;
 }
 
 p.small_bio{
@@ -342,6 +502,8 @@ p.small_bio{
     position: relative;
     bottom: 10px;
     left: 10px;
+    background-color: white;
+    border: black solid 2px;
 }
 
 .add-btn {
@@ -393,7 +555,8 @@ p.small_bio{
 }
 
 #feedback-form-name {
-    color: red;
+    color: firebrick;
+    font-weight: bolder;
 }
 
 .results-image {

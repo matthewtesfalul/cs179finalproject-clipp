@@ -377,7 +377,7 @@
 <div data-role="page" id="start">
     <div data-role="content">
         <center>
-            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+            <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
         <h3>because it's more than just a haircut</h3>
         <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
@@ -401,7 +401,7 @@
     </div>
 
     <div data-role="content">
-        <h3>Feedback</h3>
+        <h3 class="border">Feedback</h3>
 
         <ul class="feedback-list" id="feedbacklists" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
         </ul>
@@ -424,7 +424,7 @@
 <div data-role="page" id="register_barber">
     <div data-role="content">
         <center>
-            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle"></a> 
+            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
         <div data-role="navbar">
             <ul>
@@ -465,7 +465,7 @@
 <div data-role="page" id="register_client">
     <div data-role="content">
         <center>
-            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle"></a> 
+            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
         <div data-role="navbar">
             <ul>
@@ -497,7 +497,7 @@
 <div data-role="page" id="login_barber">
     <div data-role="content">
         <center>
-            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle"></a> 
+            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
         <div data-role="navbar">
             <ul>
@@ -523,7 +523,7 @@
 <div data-role="page" id="login_client">
     <div data-role="content">
         <center>
-            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle"></a> 
+            <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
         <div data-role="navbar">
             <ul>
@@ -542,7 +542,6 @@
                     <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
                 </div>
             </form> 
-        <br>
         <!-- <a href="#barber_home" data-transition="slide" class="ui-btn">Login</a> -->
     </div>
 </div>
@@ -551,12 +550,27 @@
 
     <div data-role="content">
         <center>
-            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+            <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
-        <a href="#profile" data-transition="slide" class="ui-btn">Personal Hub</a>
-        <a href="#discover_barber" data-transition="slide" class="ui-btn">Discover</a>
-        <a href="#public_profile" data-transition="slide"  class="ui-btn">View Public Profile</a>
-        <a href="#start" data-transition="slide" data-direction="reverse" class="ui-btn">Logout</a>
+        <table class="image">
+        <tr>
+            <td><a href="#profile" data-transition="slide"><img src="pics/personal_hub.jpeg" alt="Personal Hub" class="home_photo"></a></td>
+            <td><a href="#discover_barber" data-transition="slide"><img src="pics/discover.jpeg" alt="Discover" class="home_photo"></a></td>
+        </tr>
+        <tr>
+            <td class="home_caption">Personal Hub</td>
+            <td class="home_caption">Discover</td>
+        </tr>
+        <tr>
+            <td><a href="#public_profile" data-transition="slide"><img src="pics/public_profile.jpg" alt="View Public Profile" class="home_photo"></a></td>
+            <td><a href="#start" data-transition="slide" data-direction="reverse"><img src="pics/logout.jpeg" alt="Logout" class="home_photo"></a></td>
+        </tr>
+        <tr>
+            <td class="home_caption">View Public Profile</td>
+            <td class="home_caption">Logout</td>
+        </tr>
+        </table>
+
     </div>
     
 </div>
@@ -565,11 +579,26 @@
 
     <div data-role="content">
         <center>
-            <img src="pics/clipp_logo.png" alt="Clipp Logo" width="200px" align="middle">
+            <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
-        <a href="#discover_client" data-transition="slide" class="ui-btn">Discover</a>
-        <a href="#give_feedback" data-transition="slide"  class="ui-btn">Give Feedback</a>
-        <a href="#start" data-transition="slide" data-direction="reverse" class="ui-btn">Logout</a>
+        <table class="image">
+        <tr>
+            <td><a href="#discover_client" data-transition="slide"><img src="pics/discover.jpeg" alt="Discover" class="home_photo"></a></td>
+            <td><a href="#give_feedback" data-transition="slide"><img src="pics/feedback.jpg" alt="Give Feedback" class="home_photo"></a></td>
+        </tr>
+        <tr>
+            <td class="home_caption">Discover</td>
+            <td class="home_caption">Give Feedback</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a href="#start" data-transition="slide" data-direction="reverse"><img src="pics/logout.jpeg" alt="Logout" class="home_photo"></a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="home_caption">Logout</td>
+        </tr>
+        </table>
     </div>
     
 </div>
@@ -591,8 +620,8 @@
 
     <div data-role="content">
         <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">Preview Profile ></a>
-        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Ivy League Barber Shop </p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
@@ -625,19 +654,14 @@
                 <li><a href="#feedback" data-transition="none">Feedback</a></li>
             </ul>
         </div>
-        <h2>Cuts</h2>
-        <div>
-            <!-- <h3>Cuts</h3> -->
-            <!-- <button>Add Photo</button> --> 
-        </div>
-        <div data-role="fieldcontain">
-            <label for="search-basic">Search For Cut:</label>
-            <input data-type="search" name="search" id="search-basic" value="" />
-        </div>
     </div>
-
+    
     <div id="cuts_content"data-role="content">
-        
+        <h3 class="border">Cuts</h3>
+        <div data-role="fieldcontain">
+            <input data-type="search" placeholder="Search by caption" name="search" id="search-basic" value="" />
+        </div>
+
         <div id="cuts_pics">
         </div>
 
@@ -746,7 +770,7 @@
         </div>
     </div>
     <div data-role="content">
-        <h3 >Clipps</h3>
+        <h3 class="border">Clipps</h3>
 		
 		<!-- The completed vs in progress navbar -->
 		<div data-role="navbar">
@@ -844,7 +868,7 @@
         </div>
     </div>
     <div data-role="content">
-        <h3>Clipps</h3>
+        <h3 class="border">Clipps</h3>
 		
 		<!-- The completed vs in progress navbar -->
 		<div data-role="navbar">
@@ -993,7 +1017,7 @@
     </div>
 </div>
 
-<div data-role="page" id="public_profile">
+<div data-role="page" id="public_profile" class="profile">
     <div data-role="header">
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
@@ -1001,8 +1025,8 @@
     </div>
     <div data-role="content">
         <a href="#" class="ui-btn ui-btn-left ui-mini" data-rel="back"> Back </a>
-        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Ivy League Barber Shop <p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
@@ -1022,7 +1046,7 @@
     </div>
 </div>
 
-<div data-role="page" id="public_profile_client">
+<div data-role="page" id="public_profile_client" class="profile">
     <div data-role="header">
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
@@ -1031,8 +1055,8 @@
     <div data-role="content">
         <a href="#" class="ui-btn ui-btn-left ui-mini" data-rel="back"> Back </a>
         <a href="#give_feedback_form" class="ui-btn ui-btn-right ui-mini"> Leave Feedback</a>
-        <img class="border" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-        <p class="name">Mandela Patrick <br> Cool Barbershop Name <p> 
+        <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
+        <p class="name">Mandela Patrick <br> Ivy League Barber Shop <p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
@@ -1060,7 +1084,7 @@
             </center>
     </div>
     <div data-role="content">
-        <h3 id="nav-menu-subtitle">Discover</h3> 
+        <h3 class="border" id="nav-menu-subtitle">Discover</h3> 
         <form method="post" action="/action_page_post.php">
         <div class="ui-field-contain">      
           <label for="flocation">Find a barber near:</label>
@@ -1190,7 +1214,7 @@
             <textarea name="addinfo" id="info"></textarea>
         </div>
         <div id="discover-button" align="center">
-                <a href="#client_home" data-theme="b" data-role="button">
+                <a href="#public_profile_client" data-theme="b" data-role="button">
                     <span>Submit</span>
                 </a>
         </div>
@@ -1222,8 +1246,6 @@
                 </a>
             </li>
             <li> 
-
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> John Smith </h2>
                         <p id="result-text">Gentlemen's Barber Shop</p>
@@ -1233,23 +1255,19 @@
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Kris Bryant </h2>
-                        <p id="result-text">Cut 'N' Shave Barber</p>
+                        <p id="result-text">Cut 'N' Shave Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp8.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp6.png">
                             <img id = "clipp-image" src="pics/badges/clipp7.png">
                         </div></center>
-                </a>
             </li>
-            <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
+            <li>
                         <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Ray Charles </h2>
                         <p id="result-text">Fade O'Clock Barber Shop</p>
@@ -1257,10 +1275,8 @@
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Steve Smith </h2>
                         <p id="result-text">The Mustached Man</p>
@@ -1269,10 +1285,8 @@
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp4.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Luke Bryant </h2>
                         <p id="result-text">Country Loving Barber Shop</p>
@@ -1281,7 +1295,6 @@
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                         </div></center>
-                </a>
             </li>
         </ul>
     </div>
@@ -1297,7 +1310,7 @@
         <h3 id="nav-menu-subtitle">Search Results</h3>
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
-            <li> 
+           <li> 
                 <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Mandela Patrick </h2>
@@ -1311,8 +1324,6 @@
                 </a>
             </li>
             <li> 
-
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> John Smith </h2>
                         <p id="result-text">Gentlemen's Barber Shop</p>
@@ -1322,23 +1333,19 @@
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Kris Bryant </h2>
-                        <p id="result-text">Cut 'N' Shave Barber</p>
+                        <p id="result-text">Cut 'N' Shave Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp8.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp6.png">
                             <img id = "clipp-image" src="pics/badges/clipp7.png">
                         </div></center>
-                </a>
             </li>
-            <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
+            <li>
                         <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Ray Charles </h2>
                         <p id="result-text">Fade O'Clock Barber Shop</p>
@@ -1346,10 +1353,8 @@
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Steve Smith </h2>
                         <p id="result-text">The Mustached Man</p>
@@ -1358,10 +1363,8 @@
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp4.png">
                         </div></center>
-                </a>
             </li>
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
                         <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px">
                         <h2 id="result-text"> Luke Bryant </h2>
                         <p id="result-text">Country Loving Barber Shop</p>
@@ -1370,8 +1373,8 @@
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                         </div></center>
-                </a>
             </li>
+        </ul>
     </div>
 </div>
 
