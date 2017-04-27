@@ -11,6 +11,14 @@ h3.border {
     border: grey solid 2px;
 }
 
+p.border {
+    background-color: white;
+    border: grey solid 1px;
+    font-style: italic;
+    color: black;
+    text-align: center;
+}
+
 .ui-page .ui-header {
     background: white !important;
 }
