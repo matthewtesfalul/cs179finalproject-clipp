@@ -16,7 +16,7 @@ h3.border {
 }
 
 #start .ui-content{
-    background-color: rgba(255, 255, 255, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
     transform: translateY(25%);
 }
 
@@ -559,6 +559,9 @@ p.small_bio{
     font-weight: bolder;
 }
 
+#feedback {
+    min-height: 100%
+}
 .results-image {
     margin: 1%;
     width: 100%;
@@ -593,6 +596,18 @@ p.small_bio{
     padding:2px !important;
     border-bottom: 0px !important;
 }
+
+#intro-title {
+    color:firebrick;
+    text-decoration: underline;
+}
+
+#home-logout-pic {
+    width: 42.5% !important;
+    position: relative;
+    left: 20%;
+}
+
 
 
 
