@@ -393,6 +393,7 @@
 
 <div data-role="page" id="feedback">
     <div data-role="header">
+        
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -401,13 +402,18 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Reviews</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">
-        <h3 class="border">Feedback</h3>
+
+                <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
+
+        <h3 class="border">Customer Reviews</h3>
+        <p class="border">View reviews and add testimonials to Profile</p>
 
         <ul class="feedback-list" id="feedbacklists" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
         </ul>
@@ -429,6 +435,7 @@
 
 <div data-role="page" id="register_barber">
     <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
@@ -470,6 +477,7 @@
     
 <div data-role="page" id="register_client">
     <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
@@ -501,6 +509,7 @@
 </div>
     
 <div data-role="page" id="login_barber">
+    <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
     <div data-role="content">
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
@@ -527,6 +536,7 @@
 </div>
     
 <div data-role="page" id="login_client">
+    <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
     <div data-role="content">
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
@@ -564,8 +574,8 @@
             <td><a href="#discover_barber" data-transition="slide"><img src="pics/discover.jpeg" alt="Discover" class="home_photo"></a></td>
         </tr>
         <tr>
-            <td class="home_caption">Personal Hub</td>
-            <td class="home_caption">Discover</td>
+            <td class="home_caption">Customize Profile</td>
+            <td class="home_caption">Discover Barbers</td>
         </tr>
         <tr>
             <td><a href="#public_profile" data-transition="slide"><img src="pics/public_profile.jpg" alt="View Public Profile" class="home_photo"></a></td>
@@ -619,20 +629,21 @@
                 <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">
-        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">Preview Profile ></a>
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
         <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
         <p class="name">Mandela Patrick <br> Ivy League Barber Shop </p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <h4>Best Cuts <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
             <div id="portfolio_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -657,13 +668,17 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     
     <div id="cuts_content"data-role="content">
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile</a>
         <h3 class="border">Cuts</h3>
+        <p class="border" id="cuts-caption">Add photos to Profile </p>
+
         <div data-role="fieldcontain">
             <input data-type="search" placeholder="Search by caption" name="search" id="search-basic" value="" />
         </div>
@@ -763,6 +778,7 @@
 <!--CLIPPS PAGE -->
 <div data-role="page" id="clipps">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -771,96 +787,100 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
         <h3 class="border">Clipps</h3>
-        
-        <!-- The completed vs in progress navbar -->
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#clipps-completed" data-transition="none" onclick="loadClipps()">Completed</a></li>
-                <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">In Progress</a></li>
-            </ul>
-        
-        </div>
-        
-        <table id="clipptable" data-role="table" data-mode="columntoggle" class="ui-responsive">
-          <thead>
-            <tr>
-              <th>Badge</th>
-              <th>Endorsements</th>
-              <th>Clipp name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress1.png"/>
-                  <img class="progress" src="pics/progress/10.png"/>
-              </td>
-              
-              <td>1/10</td>
-              <td>Fade master</td>
-            </tr>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress4.png"/>
-                  <img class="progress" src="pics/progress/20.png"/>
-              </td>
-              
-              <td>2/10</td>
-              <td>Convo. master</td>
-            </tr>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress6.png"/>
-                  <img class="progress" src="pics/progress/30.png"/>
-              </td>
-              
-              <td>15/50</td>
-              <td>Color g.master</td>
-            </tr>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress7.png"/>
-                  <img class="progress" src="pics/progress/40.png"/>
-              </td>
-              
-              <td>4/10</td>
-              <td>Pattern master</td>
-            </tr>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress9.png"/>
-                  <img class="progress" src="pics/progress/50.png"/>
-              </td>
-              
-              <td>26/50</td>
-              <td>Joke g.master</td>
-            </tr>
-            <tr>
-              <td>
-                  <img class="badge" src="pics/badges/inprogress10.png"/>
-                  <img class="progress" src="pics/progress/60.png"/>
-              </td>
-              
-              <td>6/10</td>
-              <td>Speed master</td>
-            </tr>
-         
-          </tbody>
-        </table>
-        
-        
+
+		<p class="border">Track your progress from Novice to Grandmaster</p>
+
+		<!-- The completed vs in progress navbar -->
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#clipps-completed" data-transition="none" onclick="loadClipps()">Completed</a></li>
+				<li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">In Progress</a></li>
+			</ul>
+		
+		</div>
+		
+	    <table id="clipptable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+	      <thead>
+	        <tr>
+	          <th>Badge</th>
+	          <th>Endorsements</th>
+			  <th>Clipps</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress1.png"/>
+			      <img class="progress" src="pics/progress/10.png"/>
+			  </td>
+	          
+			  <td>1/10</td>
+			  <td>Fade master</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress4.png"/>
+			      <img class="progress" src="pics/progress/20.png"/>
+			  </td>
+	          
+			  <td>2/10</td>
+			  <td>Convo. master</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress6.png"/>
+			      <img class="progress" src="pics/progress/30.png"/>
+			  </td>
+	          
+			  <td>15/50</td>
+			  <td>Color g.master</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress7.png"/>
+			      <img class="progress" src="pics/progress/40.png"/>
+			  </td>
+	          
+			  <td>4/10</td>
+			  <td>Pattern master</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress9.png"/>
+			      <img class="progress" src="pics/progress/50.png"/>
+			  </td>
+	          
+			  <td>26/50</td>
+			  <td>Joke g.master</td>
+	        </tr>
+	        <tr>
+	          <td>
+				  <img class="badge" src="pics/badges/inprogress10.png"/>
+			      <img class="progress" src="pics/progress/60.png"/>
+			  </td>
+	          
+			  <td>6/10</td>
+			  <td>Speed master</td>
+	        </tr>
+	     
+	      </tbody>
+	    </table>
+		
     </div>
 </div>
 
 <!--CLIPPS COMPLETED PAGE -->
 <div data-role="page" id="clipps-completed">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -869,24 +889,28 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
+                <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile</a>
         <h3 class="border">Clipps</h3>
-        
-        <!-- The completed vs in progress navbar -->
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#clipps-completed" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Completed</a></li>
-                <li><a href="#clipps" data-transition="none" onclick="loadClipps()">In Progress</a></li>
-            </ul>
-        
-        </div>
-        
-        
-        <!-- ADD CLIPP TO PROFILE CONFIRM POPUPS  -->
+
+        <p class="border">Add earned Clipps to Profile</p>
+		
+		<!-- The completed vs in progress navbar -->
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#clipps-completed" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Completed</a></li>
+				<li><a href="#clipps" data-transition="none" onclick="loadClipps()">In Progress</a></li>
+			</ul>
+		
+		</div>
+		
+		
+		<!-- ADD CLIPP TO PROFILE CONFIRM POPUPS  -->
         <div data-role="popup" id="clippconfirm1" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
              Do you want to add this clipp to profile?
@@ -950,11 +974,18 @@
 
 <div data-role="page" id="discover_barber">
     <div data-role="header">
+
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+       
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+
+
+
         <h3 id="nav-menu-subtitle">Discover</h3> 
          <form method="post" action="/action_page_post.php">
         <div class="ui-field-contain">      
@@ -1025,6 +1056,7 @@
 
 <div data-role="page" id="public_profile" class="profile">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1037,7 +1069,7 @@
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio</h4>
+            <h4>Best Cuts</h4>
             <div id="public_portfolio_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -1054,6 +1086,8 @@
 
 <div data-role="page" id="public_profile_client" class="profile">
     <div data-role="header">
+
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1067,7 +1101,7 @@
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio</h4>
+            <h4>Best Cuts</h4>
             <div id="public_portfolio_client_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -1085,11 +1119,16 @@
 
 <div data-role="page" id="discover_client">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+ 
+
         <h3 class="border" id="nav-menu-subtitle">Discover</h3> 
         <form method="post" action="/action_page_post.php">
         <div class="ui-field-contain">      
@@ -1160,11 +1199,15 @@
     
 <div data-role="page" id="give_feedback">
     <div data-role="header">
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+
+                <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <h3 id="nav-menu-subtitle">Give Feedback</h3>
         <h2>Find your specific barber</h2>
         <form>
@@ -1180,6 +1223,9 @@
 
 <div data-role="page" id="give_feedback_form">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1229,6 +1275,9 @@
 </div>
 <div data-role="page" id="client_search_results">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
         </center>
@@ -1307,6 +1356,9 @@
 </div>
 <div data-role="page" id="barber_search_results">
     <div data-role="header">
+
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
         </center>
