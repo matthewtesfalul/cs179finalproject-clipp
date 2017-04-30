@@ -453,7 +453,7 @@ img.front {
     height: 75px;
 }
 
-#public_profile_client .ui-content h4{
+#public_profile_client .ui-content h4 {
     background-color: lightgrey!important;
     text-shadow: none;
     color: black;
@@ -461,7 +461,7 @@ img.front {
     border: 3px solid black;
 }
 
-#public_portfolio_client_content img{
+#public_portfolio_client_content img {
     position: relative;
     border: 2px solid black;
     float: left;
@@ -488,7 +488,7 @@ img.space {
     font-weight: 800;
 }
 
-#public_profile_client .testimonial {
+#public_profile_client .testimonial, #public_profile_client2 .testimonial {
     font-family: monospace;
     font-weight: 800;
 }
@@ -568,7 +568,11 @@ p.small_bio{
 }
 
 #feedback {
-    min-height: 100%
+    min-height: 100%;
+}
+
+#cuts {
+    min-height: 100%;
 }
 .results-image {
     margin: 1%;
@@ -618,6 +622,10 @@ p.small_bio{
 
 #cuts-caption {
     margin: 0;
+}
+
+#client_search_results {
+    min-height: 100%;
 }
 
 

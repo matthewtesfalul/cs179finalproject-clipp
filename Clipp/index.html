@@ -22,8 +22,8 @@
                 "testimonials": ["Wish I found this place sooner!!! Girls watch out", "Best in town for fades and mohawks", "Service was quick, barber was friendly"],
                 "clipps": ["clipp1.png", "clipp2.png", "clipp3.png", "clipp4.png" ]
             }
-
         ]
+
         var reviews = [
             {
                 "id": 0, 
@@ -83,7 +83,6 @@
             }
         ];
 
-
         var profile_testimonials = [];
 
         function openPopup(date, testimonial, id, haircut_id) {
@@ -119,7 +118,6 @@
         }
 
         function addTestimonialToProfile(id) {
-            console.log("added");
             if (profile_testimonials.length < 2) {
                 profile_testimonials.push(id);
             }
@@ -143,6 +141,79 @@
                         node.innerHTML += string1;
                    }
             }
+        }
+
+        list_haircuts = [ 
+            ["haircut2", "haircut3", "haircut1"], 
+            ["haircut7", "haircut4", "haircut2", "haircut9"],
+            ["haircut1", "haircut8", "haircut6", "haircut4"], 
+            ["haircut7", "haircut4", "haircut2", "haircut3"],
+            ["haircut1", "haircut3", "haircut6"]
+        ]; 
+
+        list_clipps = [ 
+            ["clipp1", "clipp2", "clipp3", "clipp4"], 
+            ["clipp1", "clipp5", "clipp3", "clipp2"],
+            ["clipp8", "clipp2", "clipp6", "clipp7"],
+            ["clipp9", "clipp3"],
+            ["clipp1", "clipp2", "clipp4"]
+        ]; 
+
+        list_testimonials = [ 
+            [1, 3], 
+            [4],
+            [5, 2],
+            [2],
+            [5]
+        ]; 
+
+        function printProfileInformation(num, barbername, barbershop, img_src) {
+            
+            haircuts = list_haircuts[num];
+            clipps = list_clipps[num];
+            testimonials = list_testimonials[num];
+
+            $("#public_testimonials_client_content").empty();
+            for (i = 0; i < testimonials.length; i++) { 
+                    var node = document.getElementById("public_testimonials_client_content");
+                    var div0 = '<div class="testimonial_div">'
+                    var div1 = '</div>'
+                    var string1 = '<p class="testimonial">"' + reviews[testimonials[i]].testimonial + '"</p>'
+                    
+                    node.innerHTML += string1;
+
+            }
+
+            $("#public_clipps_client_content").empty();
+            for (i = 0; i < clipps.length; i++) {
+                    // get the id 
+                    var node = document.getElementById("public_clipps_client_content");
+                    
+                    // strings for defining the container div
+                    var div0 = '<div id="portfolio_clipp">'
+                    var div1 = '</div>'
+                    
+                    // add the appropriate photo
+                    var string1 = '<img class="badge" src="pics/badges/' + clipps[i] + '.png"/>'  
+                    // if it's the private profile allow deleting
+                    
+                    node.innerHTML += (div0 + string1 + div1);
+                    
+            }   
+
+            $("#public_portfolio_client_content").empty();
+            for (i = 0; i < haircuts.length; i++) { 
+                    var node = document.getElementById("public_portfolio_client_content");
+                    var div0 = '<div class="portfolio_photo">'
+                    var div1 = '</div>'
+                    var string1 = '<a href=#' + cuts[i] + 'data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto border space" src="pics/' + haircuts[i] + '.jpg"' + ' alt="Paris, France" width="75px" height="75px"></a>'
+                    
+                    node.innerHTML += string1;
+            }
+
+
+            $("#prof_name").html(barbername + "<br>" + barbershop);
+            $("#prof_img").attr("src", img_src);
         }
         
         function deleteProfileTestimonials(index) {
@@ -193,8 +264,6 @@
                 node.innerHTML += div0 + string1 + string2 + string3 + div1;
             }
         }
-
-
 
         function addCutToProfile (id) {
             if (profile_cuts.length < 4) {
@@ -451,15 +520,7 @@
 
               <label for="lname">Last name:</label>
               <input type="text" name="lname" id="lname">
-
-              <fieldset data-role="controlgroup">
-              <legend>Choose your gender:</legend>
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="male" value="male">
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="female" value="female">
-              </fieldset>
-
+              
               <label for="info">Short Bio:</label>
               <textarea name="addinfo" id="info"></textarea>
 
@@ -493,14 +554,6 @@
 
               <label for="lname">Last name:</label>
               <input type="text" name="lname" id="lname">
-
-              <fieldset data-role="controlgroup">
-              <legend>Choose your gender:</legend>
-                <label for="male1">male</label>
-                <input type="radio" name="gender" id="male1" value="male1">
-                <label for="female1">female</label>
-                <input type="radio" name="gender" id="female1" value="female1">
-              </fieldset>
 
             </form>
         <br>
@@ -1086,8 +1139,6 @@
 
 <div data-role="page" id="public_profile_client" class="profile">
     <div data-role="header">
-
-
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1095,8 +1146,8 @@
     <div data-role="content">
         <a href="#" class="ui-btn ui-btn-left ui-mini" data-rel="back"> Back </a>
         <a href="#give_feedback_form" class="ui-btn ui-btn-right ui-mini"> Leave Feedback</a>
-        <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-        <p class="name">Mandela Patrick <br> Ivy League Barber Shop <p> 
+        <img class="border front" id="prof_img" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px" height="95px">
+        <p class="name" id="prof_name">Mandela Patrick <br><span id="prof_barber">Ivy League Barber Shop </span><p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
@@ -1231,10 +1282,10 @@
             </center>
     </div>
     <div data-role="content">
-        <h3 id="nav-menu-subtitle">Feedback Form for <span id="feedback-form-name">Mandela Patrick</span></h3>
+        <h3 id="nav-menu-subtitle">Feedback Form </h3>
         <form>
             <div class="ui-field-contain">
-            <label for="feedback-endorsements-skills">What was <span id="feedback-form-name"> Mandela Patrick</span> awesome at?</label>
+            <label for="feedback-endorsements-skills">What was your barber awesome at awesome at?</label>
             <select name="feedback-endorsements-skills" id="feedback-endorsements-skills" multiple="multiple" data-native-menu="false">
               <option>Skills</option>
               <option value="mon">Fade</option>
@@ -1267,7 +1318,7 @@
         </div>
         <div id="discover-button" align="center">
                 <a href="#public_profile_client" data-theme="b" data-role="button">
-                    <span>Submit <br>(Thanks for helping Mandela out)</span>
+                    <span>Submit <br>(Thanks for helping your barber out)</span>
                 </a>
         </div>
         </form>
@@ -1288,10 +1339,10 @@
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
             <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
-                        <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-                        <h2 id="result-text"> Mandela Patrick </h2>
-                        <p id="result-text">Ivy League Barber Shop</p>
+                <a href="#public_profile_client" onclick="printProfileInformation(0,'Diondra Peck', 'Quincy Quad', 'pics/haircut9.jpg');">
+                        <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px" height="95px">
+                        <h2 id="result-text"> Frank Johnson </h2>
+                        <p id="result-text">Quincy Quad</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
@@ -1300,56 +1351,55 @@
                         </div></center>
                 </a>
             </li>
+            
             <li> 
-                        <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(1,'John Smith', 'Gentlemens Barber Shop', 'pics/haircut1.jpg');">
+                        <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> John Smith </h2>
-                        <p id="result-text">Gentlemen's Barber Shop</p>
+                        <p id="result-text">Gentlemens Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp5.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                         </div></center>
+                </a>
             </li>
             <li> 
-                        <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(2,'Kris Bryant', 'Cut N Shave Barber Shop', 'pics/haircut2.jpg');">
+                        <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Kris Bryant </h2>
-                        <p id="result-text">Cut 'N' Shave Barber Shop</p>
+                        <p id="result-text">Cut N Shave Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp8.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp6.png">
                             <img id = "clipp-image" src="pics/badges/clipp7.png">
                         </div></center>
+                </a>
             </li>
             <li>
-                        <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(3,'Ray Charles', 'The Fade Barber Shop', 'pics/haircut3.jpg');">
+                        <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Ray Charles </h2>
-                        <p id="result-text">Fade O'Clock Barber Shop</p>
+                        <p id="result-text">The Fade Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                         </div></center>
+                </a>
             </li>
             <li> 
-                        <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(4,'Steve Smith', 'The Mustached Man Barber Shop', 'pics/haircut4.jpg');">
+                        <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Steve Smith </h2>
-                        <p id="result-text">The Mustached Man</p>
+                        <p id="result-text">The Mustached Man Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp4.png">
                         </div></center>
-            </li>
-            <li> 
-                        <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px">
-                        <h2 id="result-text"> Luke Bryant </h2>
-                        <p id="result-text">Country Loving Barber Shop</p>
-                        <center><div class="clipps-container"> 
-                            <img id = "clipp-image" src="pics/badges/clipp5.png">
-                            <img id = "clipp-image" src="pics/badges/clipp9.png">
-                            <img id = "clipp-image" src="pics/badges/clipp1.png">
-                        </div></center>
+                </a>
             </li>
         </ul>
     </div>
@@ -1368,11 +1418,11 @@
         <h3 id="nav-menu-subtitle">Search Results</h3>
 
         <ul class="search-results-list" data-role="listview" data-filter="true" data-filter-placeholder="Filter your results" data-icon="false" data-inset="true">
-           <li> 
-                <a href="#public_profile_client" onclick="printProfileCuts('public_portfolio_client_content'); printProfileClipps(); printTestimonials('public_testimonials_client_content');">
-                        <img class="results-image" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
-                        <h2 id="result-text"> Mandela Patrick </h2>
-                        <p id="result-text">Ivy League Barber Shop</p>
+            <li> 
+                <a href="#public_profile_client" onclick="printProfileInformation(0,'Diondra Dilworth', 'Quincy Quad', 'pics/haircut9.jpg');">
+                        <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px" height="95px">
+                        <h2 id="result-text"> Frank Johnson </h2>
+                        <p id="result-text">Quincy Quad</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
@@ -1381,56 +1431,55 @@
                         </div></center>
                 </a>
             </li>
+            
             <li> 
-                        <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(1,'John Smith', 'Gentlemens Barber Shop', 'pics/haircut1.jpg');">
+                        <img class="results-image" src="pics/haircut1.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> John Smith </h2>
-                        <p id="result-text">Gentlemen's Barber Shop</p>
+                        <p id="result-text">Gentlemens Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp5.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                         </div></center>
+                </a>
             </li>
             <li> 
-                        <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(2,'Kris Bryant', 'Cut N Shave Barber Shop', 'pics/haircut2.jpg');">
+                        <img class="results-image" src="pics/haircut2.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Kris Bryant </h2>
-                        <p id="result-text">Cut 'N' Shave Barber Shop</p>
+                        <p id="result-text">Cut N Shave Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp8.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp6.png">
                             <img id = "clipp-image" src="pics/badges/clipp7.png">
                         </div></center>
+                </a>
             </li>
             <li>
-                        <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(3,'Ray Charles', 'The Fade Barber Shop', 'pics/haircut3.jpg');">
+                        <img class="results-image" src="pics/haircut3.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Ray Charles </h2>
-                        <p id="result-text">Fade O'Clock Barber Shop</p>
+                        <p id="result-text">The Fade Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp9.png">
                             <img id = "clipp-image" src="pics/badges/clipp3.png">
                         </div></center>
+                </a>
             </li>
             <li> 
-                        <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px">
+                <a href="#public_profile_client" onclick="printProfileInformation(4,'Steve Smith', 'The Mustached Man Barber Shop', 'pics/haircut4.jpg');">
+                        <img class="results-image" src="pics/haircut4.jpg" alt="Profile Photo" width="80px" height="95px">
                         <h2 id="result-text"> Steve Smith </h2>
-                        <p id="result-text">The Mustached Man</p>
+                        <p id="result-text">The Mustached Man Barber Shop</p>
                         <center><div class="clipps-container"> 
                             <img id = "clipp-image" src="pics/badges/clipp1.png">
                             <img id = "clipp-image" src="pics/badges/clipp2.png">
                             <img id = "clipp-image" src="pics/badges/clipp4.png">
                         </div></center>
-            </li>
-            <li> 
-                        <img class="results-image" src="pics/haircut9.jpg" alt="Profile Photo" width="80px">
-                        <h2 id="result-text"> Luke Bryant </h2>
-                        <p id="result-text">Country Loving Barber Shop</p>
-                        <center><div class="clipps-container"> 
-                            <img id = "clipp-image" src="pics/badges/clipp5.png">
-                            <img id = "clipp-image" src="pics/badges/clipp9.png">
-                            <img id = "clipp-image" src="pics/badges/clipp1.png">
-                        </div></center>
+                </a>
             </li>
         </ul>
     </div>
