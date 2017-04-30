@@ -159,7 +159,7 @@
                 if (cuts[i] == cut) {
                     cuts.splice(i, 1);
                 }
-            }
+             }
             loadCuts();
         }
 
@@ -385,11 +385,21 @@
         <center>
             <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
-        <h4>For <span id="intro-title">barbers</span>, Clipp lets you market yourself using client feedback, photos, and earned badges called <span>"clipps"</span>.</h4>
-        <h4>For <span id="intro-title">clients</span>, Clipp lets you find the perfect barber and leave them feedback.</h4>
-        <h3 id="intro-title">because it's more than just a haircut</h3>
+        <h3>because it's more than just a haircut</h3>
         <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
         <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
+        <p>Want to learn more? <a href="#about" data-transition="slide">About.</a></p>
+    </div>
+</div>
+    
+<div data-role="page" id="about">
+    <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
+        <center>
+            <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <h4>For <span id="intro-title">barbers</span>, Clipp lets you market yourself using client feedback, photos, and earned badges called <span>"clipps"</span>.</h4>
+        <h4>For <span id="intro-title">clients</span>, Clipp lets you find the perfect barber and leave them feedback.</h4>
     </div>
 </div>
 
@@ -449,28 +459,26 @@
         </div>
             <form method="post" action="/action_page_post.php">
               <label for="fname">First name:</label>
-              <input type="text" name="fname" id="fname">
+              <input type="text" name="fname" value="Mandela" id="fname">
 
               <label for="lname">Last name:</label>
-              <input type="text" name="lname" id="lname">
+              <input type="text" name="lname" value="Patrick" id="lname">
 
-              <fieldset data-role="controlgroup">
-              <legend>Choose your gender:</legend>
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="male" value="male">
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="female" value="female">
-              </fieldset>
-
+              <label for="username1">Username:</label>
+              <input type="text" name="username1" value="m.patrick" id="username1">
+                
+              <label for="password1">Password:</label>
+              <input type="password" name="username1" value="Patrick" id="password1">
+                
               <label for="info">Short Bio:</label>
-              <textarea name="addinfo" id="info"></textarea>
+              <textarea name="addinfo" id="info">25 years in the business - Appointments Accepted - Walk-ins Welcome!"</textarea>
 
               <label for="bshop">Barbershop:</label>
-              <input type="text" name="bshop" id="bshop">
+              <input type="text" name="bshop" id="bshop" value="Ivy League Barber Shop">
 
 
               <label for="cnum">Contact Number:</label>
-              <input type="text" name="cnum" id="cnum">
+              <input type="text" name="cnum" id="cnum" value="555-555-5555">
 
             </form>
          <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
@@ -491,18 +499,16 @@
         </div>
             <form method="post" action="/action_page_post.php">
               <label for="fname">First name:</label>
-              <input type="text" name="fname" id="fname">
+              <input type="text" name="fname" id="fname" value="Matthew">
 
               <label for="lname">Last name:</label>
-              <input type="text" name="lname" id="lname">
+              <input type="text" name="lname" id="lname" value="Tesfalul">
 
-              <fieldset data-role="controlgroup">
-              <legend>Choose your gender:</legend>
-                <label for="male1">male</label>
-                <input type="radio" name="gender" id="male1" value="male1">
-                <label for="female1">female</label>
-                <input type="radio" name="gender" id="female1" value="female1">
-              </fieldset>
+              <label for="username2">Username:</label>
+              <input type="text" name="username2" value="coolbarberclient" id="username2">
+                
+              <label for="password2">Password:</label>
+              <input type="password" name="password2" value="Imcool" id="password2">
 
             </form>
         <br>
@@ -525,10 +531,10 @@
         <form>
             <div class="container">
                 <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" required value="m.patrick">
 
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" required value="Patrick">
         
                 <a href="#barber_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
             </div>
@@ -553,10 +559,10 @@
             <form>
                 <div class="container">
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <input type="text" placeholder="Enter Username" name="uname" required value="coolbarberclient">
 
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="psw" required value="Imcool">
                     <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
                 </div>
             </form> 
@@ -1233,10 +1239,10 @@
             </center>
     </div>
     <div data-role="content">
-        <h3 id="nav-menu-subtitle">Feedback Form for <span id="feedback-form-name">Mandela Patrick</span></h3>
+        <h3 id="nav-menu-subtitle">Feedback Form</h3>
         <form>
             <div class="ui-field-contain">
-            <label for="feedback-endorsements-skills">What was <span id="feedback-form-name"> Mandela Patrick</span> awesome at?</label>
+            <label class="feedback_form_text" for="feedback-endorsements-skills">What was your barber awesome at?</label>
             <select name="feedback-endorsements-skills" id="feedback-endorsements-skills" multiple="multiple" data-native-menu="false">
               <option>Skills</option>
               <option value="mon">Fade</option>
@@ -1257,19 +1263,19 @@
             </select>
         </div>
         <div class="ui-field-contain">
-            <label> Let's see the cut! </label>
+            <label class="feedback_form_text"> Let's see the cut! </label>
             <div data-role="controlgroup" data-type="horizontal">
                 <a href="#" data-role="button">Upload</a>
                 <a href="#" data-role="button">Camera</a>
             </div>
         </div>
         <div class="ui-field-contain">          
-            <label for="info">Leave a testimonial telling us why your barber is great:</label>
+            <label class="feedback_form_text" for="info">Leave a testimonial telling us why your barber is great:</label>
             <textarea name="addinfo" id="info"></textarea>
         </div>
         <div id="discover-button" align="center">
                 <a href="#public_profile_client" data-theme="b" data-role="button">
-                    <span>Submit <br>(Thanks for helping Mandela out)</span>
+                    <span>Submit <br>(Thanks for helping your barber out)</span>
                 </a>
         </div>
         </form>

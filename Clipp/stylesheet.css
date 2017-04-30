@@ -34,6 +34,17 @@ p.border {
     background-position: center!important;
 }
 
+#about .ui-content{
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    transform: translateY(25%);
+}
+
+#about {
+    background-image: url(pics/barbershop.jpeg) !important;
+    background-size: cover !important;
+    background-position: center!important;
+}
+
 #barber_home .ui-content{
     background: white !important;
     transform: translateY(50%);
@@ -186,7 +197,7 @@ p.border {
 }
 
 #give_feedback_form{
-     background-image: url(pics/give_feedback.jpeg) !important;
+    background-image: url(pics/give_feedback.jpeg) !important;
     background-size: cover !important;
     background-position: center !important;
 }
@@ -480,17 +491,23 @@ img.space {
 
 #profile .testimonial {
     font-family: monospace;
+    font-size: 110%;
     font-weight: 800;
+    text-shadow: none;
 }
 
 #public_profile .testimonial {
     font-family: monospace;
+    font-size: 110%;
     font-weight: 800;
+    text-shadow: none;
 }
 
 #public_profile_client .testimonial {
     font-family: monospace;
+    font-size: 110%;
     font-weight: 800;
+    text-shadow: none;
 }
 
 p.name {
@@ -606,7 +623,7 @@ p.small_bio{
 }
 
 #intro-title {
-    color:firebrick;
+    color: firebrick;
     text-decoration: underline;
 }
 
@@ -620,5 +637,9 @@ p.small_bio{
     margin: 0;
 }
 
+.feedback_form_text {
+    font-weight: 800 !important;
+    text-shadow: none !important; 
+}
 
 
