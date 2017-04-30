@@ -23,11 +23,6 @@
                 "clipps": ["clipp1.png", "clipp2.png", "clipp3.png", "clipp4.png" ]
             }
 
-
-
-
-
-
         ]
         var reviews = [
             {
@@ -36,7 +31,8 @@
                 "testimonial": "Wish I found this place sooner!!! Girls watch out",
                 "date": "May 15, 2016",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
-                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"],
+                "show":true
             }, 
             {
                 "id": 1, 
@@ -44,7 +40,8 @@
                 "testimonial": "Best in town for fades and mohawks",
                 "date": "Jan 14, 2016",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp7.png"> </div></center>',
-                "endorsements_list":["Speed", "Funny"]
+                "endorsements_list":["Speed", "Funny"],
+                "show":true
             }, 
             {
                 "id": 2, 
@@ -52,7 +49,8 @@
                 "testimonial": "Service was quick, barber was friendly",
                 "date": "October 25, 2015",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp9.png"> </div></center>',
-                "endorsements_list":["Gelling"]
+                "endorsements_list":["Gelling"],
+                "show":true
             }, 
             {
                 "id": 3,
@@ -60,7 +58,8 @@
                 "testimonial": "Lovely, funny barber. Great at cutting my childs hair",
                 "date": "July 5, 2015",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
-                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"],
+                "show":true
 
             }, 
             {
@@ -69,7 +68,8 @@
                 "testimonial": "Decent haircutting skills. But not polite and rushed through my cut",
                 "date": "April 30, 2015",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp8.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp5.png"> </div></center>',
-                "endorsements_list":["Speed", "Shave", "Fade", "Pattern"]
+                "endorsements_list":["Speed", "Shave", "Fade", "Pattern"],
+                "show":true
 
             }, 
             {
@@ -78,7 +78,8 @@
                 "testimonial": "20 years. I am still amazed at the great service and cuts",
                 "date": "December 22, 2014",
                 "endorsements": '<center><div class="clipps-container"> <img id = "clipp-image" src="pics/badges/clipp1.png"> <img id = "clipp-image" src="pics/badges/clipp2.png"> <img id = "clipp-image" src="pics/badges/clipp3.png"> <img id = "clipp-image" src="pics/badges/clipp4.png"> </div></center>',
-                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"]
+                "endorsements_list":["Fade", "Conversationalist", "Shave", "Coloring"],
+                "show":true
             }
         ];
 
@@ -96,7 +97,7 @@
         function deleteReview(id_num) {
             for (i = 0; i < reviews.length; i++) {
                 if (reviews[i].id == id_num) {
-                    reviews.splice(i, 1);
+                    reviews[i].show = false
                     $(".review_container"+id_num).hide();
                     return
                 }
@@ -108,9 +109,12 @@
 
             var node = document.getElementById("feedbacklists");
             for (i = 0; i < reviews.length; i++) {
-                var arguments = '"'+reviews[i].date + '", "' + reviews[i].testimonial + '", "' + reviews[i].id + '", "' + reviews[i].haircut_id +'"' 
-                var string1 = '<li class="review_container' + reviews[i].id + '"> <a href="#" id="review' + reviews[i].id +'" onclick=' + "'" + 'openPopup(' + arguments + ')' + "'" + '> <p id="feedback-date" class="ui-li-aside"> ' + reviews[i].date + ' </p> <p class="feedback-testimonial"><strong> ' + reviews[i].testimonial + ' </strong></p> ' + reviews[i].endorsements + ' </a> <a class="delete-feedback" href="#feedback" onclick="deleteReview(' + reviews[i].id + ')"></a> </li>'   
-                node.innerHTML += string1;
+                if (reviews[i].show) {
+
+                    var arguments = '"'+reviews[i].date + '", "' + reviews[i].testimonial + '", "' + reviews[i].id + '", "' + reviews[i].haircut_id +'"' 
+                    var string1 = '<li class="review_container' + reviews[i].id + '"> <a href="#" id="review' + reviews[i].id +'" onclick=' + "'" + 'openPopup(' + arguments + ')' + "'" + '> <p id="feedback-date" class="ui-li-aside"> ' + reviews[i].date + ' </p> <p class="feedback-testimonial"><strong> ' + reviews[i].testimonial + ' </strong></p> ' + reviews[i].endorsements + ' </a> <a class="delete-feedback" href="#feedback" onclick="deleteReview(' + reviews[i].id + ')"></a> </li>'   
+                    node.innerHTML += string1;
+                }
             }
         }
 
@@ -124,11 +128,12 @@
         function printTestimonials(id) {
             $("#" + id).empty();
                 for (i = 0; i < profile_testimonials.length; i++) { 
+
                     var node = document.getElementById(id);
                     var div0 = '<div class="testimonial_div">'
                     var div1 = '</div>'
                     var string0 = '<a href="#profile" onclick="deleteProfileTestimonials(\'' + i + '\')"> <img class="delete_testimonials" src="pics/badges/delete.ico"/></a>';
-                    var string1 = '<p class="testimonial">"' + reviews[i].testimonial + '"</p>'
+                    var string1 = '<p class="testimonial">"' + reviews[profile_testimonials[i]].testimonial + '"</p>'
                     
                     if (id == "testimonials_content") {
                         node.innerHTML += string0 + string1;
@@ -226,144 +231,143 @@
             profile_cuts.splice(index, 1);
             printProfileCuts('portfolio_content');
         }
-		
-		
-        //clipps available. static for now
-		var clipps = ["clipp1","clipp2","clipp3","clipp4","clipp5","clipp6","clipp7","clipp8","clipp9"];
         
-		// clipps on profile
-		var profile_clipps = [];
-		
-		
-		// a global dict to track which clipps have been added to profile
-		var clippsadded = {
-		  	clipp1: false,
-		  	clipp2: false,
-			clipp3: false,
-			clipp4: false,
-			clipp5: false,
-			clipp6: false,
-			clipp7: false,
-			clipp8: false,
-			clipp9: false,
-		};
-		
-		// load the clipps on the completed page
+        
+        //clipps available. static for now
+        var clipps = ["clipp1","clipp2","clipp3","clipp4","clipp5","clipp6","clipp7","clipp8","clipp9"];
+        
+        // clipps on profile
+        var profile_clipps = [];
+        
+        
+        // a global dict to track which clipps have been added to profile
+        var clippsadded = {
+            clipp1: false,
+            clipp2: false,
+            clipp3: false,
+            clipp4: false,
+            clipp5: false,
+            clipp6: false,
+            clipp7: false,
+            clipp8: false,
+            clipp9: false,
+        };
+        
+        // load the clipps on the completed page
         function loadClipps() {
-			
-			// the position on the grid (column)
-			gridposition = ["a", "b", "c"];
-			
-			// empty the div
+            
+            // the position on the grid (column)
+            gridposition = ["a", "b", "c"];
+            
+            // empty the div
             $("#clippsgrid").empty();
-			
-			// loop through all the clipps
+            
+            // loop through all the clipps
 
             for (i = 0; i < clipps.length; i++) { 
-				
-				// get the clippsgrid so far
+                
+                // get the clippsgrid so far
                 var node = document.getElementById('clippsgrid');
-				
-				// define the div to be in the column sequentially in the above list
-				var string1 = '<div class="ui-block-' + gridposition[i%3] + '" style="height:60px">';
-				
-				// add the clipp using number
-				var string2 = '<img class="badgecomplete" src="pics/badges/clipp' + (i+1) + '.png"/>';
-				
-				// if it's added to the profile do a check sign
-				if (clippsadded[clipps[i]]){
-					
-					var string3 = '<img class="add" src="pics/badges/check.png"/>';
-				}
-				
-				// if it's not added to the profile do a plus sign with a link to add
-				else{
-					
-					var string3 = '<a class = "add" href=#clippconfirm' + (i + 1) + ' data-rel="popup"> <img class = "addicon" src="pics/badges/add.ico"/> </a>';
-					
-					// var string3 = '<img class="add" src="pics/badges/add.ico"/>';
-				}
-				
-				var string4 = '</div>';
-				
-				// add string to div
+                
+                // define the div to be in the column sequentially in the above list
+                var string1 = '<div class="ui-block-' + gridposition[i%3] + '" style="height:60px">';
+                
+                // add the clipp using number
+                var string2 = '<img class="badgecomplete" src="pics/badges/clipp' + (i+1) + '.png"/>';
+                
+                // if it's added to the profile do a check sign
+                if (clippsadded[clipps[i]]){
+                    
+                    var string3 = '<img class="add" src="pics/badges/check.png"/>';
+                }
+                
+                // if it's not added to the profile do a plus sign with a link to add
+                else{
+                    
+                    var string3 = '<a class = "add" href=#clippconfirm' + (i + 1) + ' data-rel="popup"> <img class = "addicon" src="pics/badges/add.ico"/> </a>';
+                    
+                    // var string3 = '<img class="add" src="pics/badges/add.ico"/>';
+                }
+                
+                var string4 = '</div>';
+                
+                // add string to div
 
                 node.innerHTML += (string1 + string2 + string3 + string4);
             }
 
         }
-		
-		// add a clipp to profile
+        
+        // add a clipp to profile
         function addClippToProfile (id) {
             if (profile_clipps.length < 6) {
-				
-				// max out at six
+                
+                // max out at six
                 profile_clipps.push(id);
-				// change the clipp to added in the global dict
-				clippsadded[id] = true;
-				
+                // change the clipp to added in the global dict
+                clippsadded[id] = true;
+                
             }
-			
+            
 
-			
-			// refresh the completed clipps page as well as the profile page
-			loadClipps();
-			printProfileClipps();
-        }
-		
-
-		// print profile clipps
-        function printProfileClipps() {
-			
-			// these are the divs that the function will update
-			ids = ["clipps_content", "public_clipps_content", "public_clipps_client_content"];
-			
-			// loop through all the ids
-			for (j = 0; j < ids.length; j++){
-	           
-			   // empty it
-			    $("#" + ids[j]).empty();
-				
-					// loop through all the clipps to be added to the profile
-	                for (i = 0; i < profile_clipps.length; i++) {
-						
-						// get the id 
-	                    var node = document.getElementById(ids[j]);
-						
-						// strings for defining the container div
-	                    var div0 = '<div id="portfolio_clipp">'
-	                    var div1 = '</div>'
-						
-						// define the div based on the index of the clipp in the list
-						// this will be used if it is to be deleted
-						var string0 = '<a href="#profile" class="add" onclick="deleteProfileClipps(\'' + i + '\')"> <img class="addicon" src="pics/badges/delete.ico"/></a>';
-					
-						// add the appropriate photo
-						var string1 = '<img class="badge" src="pics/badges/' + profile_clipps[i] + '.png"/>'  
-                    	// if it's the private profile allow deleting
-						if (ids[j] == "clipps_content"){
-							node.innerHTML += (div0 + string0 + string1 + div1);	
-						}
-						// if not the private profile do not allow deleting
-						else{
-							node.innerHTML += (div0 + string1 + div1);
-						}	
-	            }	
-			}
-        }
-		
-		// delete a clipp from the profile
-        function deleteProfileClipps(index) {
-			
-			// set that clipp to not added in the global dict
-            clippsadded[profile_clipps[index]] = false;
-			
-			// remove it from the profile clipps list and refresh that page
-			profile_clipps.splice(index, 1);
+            
+            // refresh the completed clipps page as well as the profile page
+            loadClipps();
             printProfileClipps();
         }
-		
+        
 
+        // print profile clipps
+        function printProfileClipps() {
+            
+            // these are the divs that the function will update
+            ids = ["clipps_content", "public_clipps_content", "public_clipps_client_content"];
+            
+            // loop through all the ids
+            for (j = 0; j < ids.length; j++){
+               
+               // empty it
+                $("#" + ids[j]).empty();
+                
+                    // loop through all the clipps to be added to the profile
+                    for (i = 0; i < profile_clipps.length; i++) {
+                        
+                        // get the id 
+                        var node = document.getElementById(ids[j]);
+                        
+                        // strings for defining the container div
+                        var div0 = '<div id="portfolio_clipp">'
+                        var div1 = '</div>'
+                        
+                        // define the div based on the index of the clipp in the list
+                        // this will be used if it is to be deleted
+                        var string0 = '<a href="#profile" class="add" onclick="deleteProfileClipps(\'' + i + '\')"> <img class="addicon" src="pics/badges/delete.ico"/></a>';
+                    
+                        // add the appropriate photo
+                        var string1 = '<img class="badge" src="pics/badges/' + profile_clipps[i] + '.png"/>'  
+                        // if it's the private profile allow deleting
+                        if (ids[j] == "clipps_content"){
+                            node.innerHTML += (div0 + string0 + string1 + div1);    
+                        }
+                        // if not the private profile do not allow deleting
+                        else{
+                            node.innerHTML += (div0 + string1 + div1);
+                        }   
+                }   
+            }
+        }
+        
+        // delete a clipp from the profile
+        function deleteProfileClipps(index) {
+            
+            // set that clipp to not added in the global dict
+            clippsadded[profile_clipps[index]] = false;
+            
+            // remove it from the profile clipps list and refresh that page
+            profile_clipps.splice(index, 1);
+            printProfileClipps();
+        }
+        
         $(document).ready(function() { // When entering pagetwo
             loadReviews();
             loadCuts();
@@ -381,7 +385,9 @@
         <center>
             <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
-        <h3>because it's more than just a haircut</h3>
+        <h4>For <span id="intro-title">barbers</span>, Clipp lets you market yourself using client feedback, photos, and earned badges called <span>"clipps"</span>.</h4>
+        <h4>For <span id="intro-title">clients</span>, Clipp lets you find the perfect barber and leave them feedback.</h4>
+        <h3 id="intro-title">because it's more than just a haircut</h3>
         <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
         <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
     </div>
@@ -389,6 +395,7 @@
 
 <div data-role="page" id="feedback">
     <div data-role="header">
+        
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -397,13 +404,18 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()" >Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Feedback</a></li>
+                <li><a href="#feedback" class="ui-btn-active ui-state-persist">Reviews</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">
-        <h3 class="border">Feedback</h3>
+
+                <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
+
+        <h3 class="border">Customer Reviews</h3>
+        <p class="border">View reviews and add testimonials to Profile</p>
 
         <ul class="feedback-list" id="feedbacklists" data-role="listview" data-split-icon="delete"  data-iconpos="top" data-filter="true" data-filter-placeholder="Search by keywords or by date" data-inset="true">
         </ul>
@@ -425,6 +437,7 @@
 
 <div data-role="page" id="register_barber">
     <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
@@ -466,6 +479,7 @@
     
 <div data-role="page" id="register_client">
     <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
         </center>
@@ -497,6 +511,7 @@
 </div>
     
 <div data-role="page" id="login_barber">
+    <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
     <div data-role="content">
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
@@ -523,6 +538,7 @@
 </div>
     
 <div data-role="page" id="login_client">
+    <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
     <div data-role="content">
         <center>
             <a href="#start" data-transition = "slide" data-direction="reverse"><img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle"></a> 
@@ -560,8 +576,8 @@
             <td><a href="#discover_barber" data-transition="slide"><img src="pics/discover.jpeg" alt="Discover" class="home_photo"></a></td>
         </tr>
         <tr>
-            <td class="home_caption">Personal Hub</td>
-            <td class="home_caption">Discover</td>
+            <td class="home_caption">Customize Profile</td>
+            <td class="home_caption">Discover Barbers</td>
         </tr>
         <tr>
             <td><a href="#public_profile" data-transition="slide"><img src="pics/public_profile.jpg" alt="View Public Profile" class="home_photo"></a></td>
@@ -593,12 +609,12 @@
             <td class="home_caption">Give Feedback</td>
         </tr>
         <tr>
-            <td></td>
-            <td><a href="#start" data-transition="slide" data-direction="reverse"><img src="pics/logout.jpeg" alt="Logout" class="home_photo"></a></td>
+              <!-- <td></td>    -->         
+            <td colspan="2"><a href="#start" data-transition="slide" data-direction="reverse"><img src="pics/logout.jpeg" alt="Logout" class="home_photo" id="home-logout-pic"></a></td>
         </tr>
         <tr>
-            <td></td>
-            <td class="home_caption">Logout</td>
+            <!-- <td></td>  -->
+            <td class="home_caption" colspan="2">Logout</td>
         </tr>
         </table>
     </div>
@@ -615,20 +631,21 @@
                 <li><a href="#profile" class="ui-btn-active ui-state-persist" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">
-        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">Preview Profile ></a>
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
         <img class="border front" src="pics/profile_photo_1.jpg" alt="Profile Photo" width="80px">
         <p class="name">Mandela Patrick <br> Ivy League Barber Shop </p> 
         <p class="small_bio">25 years in the business - Appointments Accepted - Walk-ins Welcome!</p> 
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
+            <h4>Best Cuts <a href="#cuts" data-transition="none" onclick="loadCuts()"><img class="add" src="pics/badges/add.ico"/></a></h4>
             <div id="portfolio_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -653,13 +670,17 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" class="ui-btn-active ui-state-persist" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" data-transition="none" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     
     <div id="cuts_content"data-role="content">
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile</a>
         <h3 class="border">Cuts</h3>
+        <p class="border" id="cuts-caption">Add photos to Profile </p>
+
         <div data-role="fieldcontain">
             <input data-type="search" placeholder="Search by caption" name="search" id="search-basic" value="" />
         </div>
@@ -759,6 +780,7 @@
 <!--CLIPPS PAGE -->
 <div data-role="page" id="clipps">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -767,13 +789,17 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content')">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile </a>
         <h3 class="border">Clipps</h3>
-		
+
+		<p class="border">Track your progress from Novice to Grandmaster</p>
+
 		<!-- The completed vs in progress navbar -->
 		<div data-role="navbar">
 			<ul>
@@ -788,7 +814,7 @@
 	        <tr>
 	          <th>Badge</th>
 	          <th>Endorsements</th>
-			  <th>Clipp name</th>
+			  <th>Clipps</th>
 	        </tr>
 	      </thead>
 	      <tbody>
@@ -850,13 +876,13 @@
 	      </tbody>
 	    </table>
 		
-		
     </div>
 </div>
 
 <!--CLIPPS COMPLETED PAGE -->
 <div data-role="page" id="clipps-completed">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -865,12 +891,16 @@
                 <li><a href="#profile" data-transition="none" onclick="printProfileCuts('portfolio_content'); printProfileClipps(); printTestimonials('testimonials_content');">Profile</a></li>
                 <li><a href="#cuts" data-transition="none" onclick="loadCuts()">Cuts</a></li>
                 <li><a href="#clipps" class="ui-btn-active ui-state-persist" onclick="loadClipps()">Clipps</a></li>
-                <li><a href="#feedback" data-transition="none">Feedback</a></li>
+                <li><a href="#feedback" data-transition="none">Reviews</a></li>
             </ul>
         </div>
     </div>
     <div data-role="content">
+                <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+        <a href="#public_profile" class="ui-btn ui-btn-right ui-btn-inline ui-mini" data-transition="slide" onclick="printProfileCuts('public_portfolio_content'); printProfileClipps(); printTestimonials('public_testimonials_content');">View Public Profile</a>
         <h3 class="border">Clipps</h3>
+
+        <p class="border">Add earned Clipps to Profile</p>
 		
 		<!-- The completed vs in progress navbar -->
 		<div data-role="navbar">
@@ -937,20 +967,27 @@
             <a href="#" data-rel="back"> <button onclick=addClippToProfile("clipp9") > Yes </button> </a>
             <a href="#" data-rel="back"> <button> No </button> </a>
         </div>
-		
-		<!-- <img class="badge" src="pics/badges/fadepro.png"/> -->
-		<div id = "clippsgrid" class="ui-grid-b" onload="loadClipps();">				
+        
+        <!-- <img class="badge" src="pics/badges/fadepro.png"/> -->
+        <div id = "clippsgrid" class="ui-grid-b" onload="loadClipps();">                
         </div>
     </div>
 </div>
 
 <div data-role="page" id="discover_barber">
     <div data-role="header">
+
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+       
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+
+
+
         <h3 id="nav-menu-subtitle">Discover</h3> 
          <form method="post" action="/action_page_post.php">
         <div class="ui-field-contain">      
@@ -1021,6 +1058,7 @@
 
 <div data-role="page" id="public_profile" class="profile">
     <div data-role="header">
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1033,7 +1071,7 @@
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio</h4>
+            <h4>Best Cuts</h4>
             <div id="public_portfolio_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -1050,6 +1088,8 @@
 
 <div data-role="page" id="public_profile_client" class="profile">
     <div data-role="header">
+
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1063,7 +1103,7 @@
         <!-- clear float -->
         <div style="clear: both;"></div>
         <div class="lower_section">
-            <h4>Portfolio</h4>
+            <h4>Best Cuts</h4>
             <div id="public_portfolio_client_content"></div>
             <!-- clear float -->
             <div style="clear: both;"></div>
@@ -1081,11 +1121,16 @@
 
 <div data-role="page" id="discover_client">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+ 
+
         <h3 class="border" id="nav-menu-subtitle">Discover</h3> 
         <form method="post" action="/action_page_post.php">
         <div class="ui-field-contain">      
@@ -1156,11 +1201,15 @@
     
 <div data-role="page" id="give_feedback">
     <div data-role="header">
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
     </div>
     <div data-role="content">
+
+                <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <h3 id="nav-menu-subtitle">Give Feedback</h3>
         <h2>Find your specific barber</h2>
         <form>
@@ -1176,6 +1225,9 @@
 
 <div data-role="page" id="give_feedback_form">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
             </center>
@@ -1212,12 +1264,12 @@
             </div>
         </div>
         <div class="ui-field-contain">          
-            <label for="info">Leave a testimonial:</label>
+            <label for="info">Leave a testimonial telling us why your barber is great:</label>
             <textarea name="addinfo" id="info"></textarea>
         </div>
         <div id="discover-button" align="center">
                 <a href="#public_profile_client" data-theme="b" data-role="button">
-                    <span>Submit</span>
+                    <span>Submit <br>(Thanks for helping Mandela out)</span>
                 </a>
         </div>
         </form>
@@ -1225,6 +1277,9 @@
 </div>
 <div data-role="page" id="client_search_results">
     <div data-role="header">
+
+        <a href="#client_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#client_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
         </center>
@@ -1303,6 +1358,9 @@
 </div>
 <div data-role="page" id="barber_search_results">
     <div data-role="header">
+
+        <a href="#barber_home" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Home</a>
+
         <center>
             <a href="#barber_home" data-transition="slide" data-direction="reverse"><img src="pics/scissors_logo.png" alt="Clipp Logo" width="50px" align="middle"></a>
         </center>
