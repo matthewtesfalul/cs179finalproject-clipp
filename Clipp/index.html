@@ -230,7 +230,7 @@
                 if (cuts[i] == cut) {
                     cuts.splice(i, 1);
                 }
-            }
+             }
             loadCuts();
         }
 
@@ -238,7 +238,7 @@
             $("#cuts_pics").empty();
 
             for (i = 0; i < cuts.length; i++) { 
-                var node = document.getElementById('cuts_pics');
+                var node0 = document.getElementById('cuts_pics');
                 
                 var div0 = '<div class="cuts_photo">'
                 var div1 = '</div>'
@@ -260,8 +260,10 @@
 
                 var string3 = '<a href=#' + cuts[i] + ' data-rel="popup" data-position-to="window" data-transition="fade"> <img class="popphoto" src="pics/' + cuts[i] + '.jpg"' + ' alt="Paris, France" ></a>';
 
-                / * node.innerHTML += string1 ; */
-                node.innerHTML += div0 + string1 + string2 + string3 + div1;
+                //node.innerHTML += string1 ;
+                node0.innerHTML += div0 + string1 + string2 + string3 + div1;
+                
+                
             }
         }
 
@@ -452,11 +454,21 @@
         <center>
             <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
         </center>
-        <h4>For <span id="intro-title">barbers</span>, Clipp lets you market yourself using client feedback, photos, and earned badges called <span>"clipps"</span>.</h4>
-        <h4>For <span id="intro-title">clients</span>, Clipp lets you find the perfect barber and leave them feedback.</h4>
-        <h3 id="intro-title">because it's more than just a haircut</h3>
+        <h3>because it's more than just a haircut</h3>
         <a href="#login_barber" data-transition="slide" class="ui-btn">Login</a>
         <p>Not signed up? <a href="#register_barber" data-transition="slide">Register.</a></p>
+        <p>Want to learn more? <a href="#about" data-transition="slide">About.</a></p>
+    </div>
+</div>
+    
+<div data-role="page" id="about">
+    <div data-role="content">
+        <a href="#start" class="ui-btn ui-btn-left ui-mini" data-transition="slide" data-direction="reverse">Back</a>
+        <center>
+            <img src="pics/clipp_logo_trans.png" alt="Clipp Logo" width="200px" align="middle">
+        </center>
+        <h4>For <span id="intro-title">barbers</span>, Clipp lets you market yourself using client feedback, photos, and earned badges called <span>"clipps"</span>.</h4>
+        <h4>For <span id="intro-title">clients</span>, Clipp lets you find the perfect barber and leave them feedback.</h4>
     </div>
 </div>
 
@@ -516,20 +528,26 @@
         </div>
             <form method="post" action="/action_page_post.php">
               <label for="fname">First name:</label>
-              <input type="text" name="fname" id="fname">
+              <input type="text" name="fname" value="Mandela" id="fname">
 
               <label for="lname">Last name:</label>
-              <input type="text" name="lname" id="lname">
-              
+              <input type="text" name="lname" value="Patrick" id="lname">
+
+              <label for="username1">Username:</label>
+              <input type="text" name="username1" value="m.patrick" id="username1">
+                
+              <label for="password1">Password:</label>
+              <input type="password" name="username1" value="Patrick" id="password1">
+                
               <label for="info">Short Bio:</label>
-              <textarea name="addinfo" id="info"></textarea>
+              <textarea name="addinfo" id="info">25 years in the business - Appointments Accepted - Walk-ins Welcome!"</textarea>
 
               <label for="bshop">Barbershop:</label>
-              <input type="text" name="bshop" id="bshop">
+              <input type="text" name="bshop" id="bshop" value="Ivy League Barber Shop">
 
 
               <label for="cnum">Contact Number:</label>
-              <input type="text" name="cnum" id="cnum">
+              <input type="text" name="cnum" id="cnum" value="555-555-5555">
 
             </form>
          <a href="#barber_home" data-transition="slide" class="ui-btn">Register and Login</a> 
@@ -550,10 +568,16 @@
         </div>
             <form method="post" action="/action_page_post.php">
               <label for="fname">First name:</label>
-              <input type="text" name="fname" id="fname">
+              <input type="text" name="fname" id="fname" value="Matthew">
 
               <label for="lname">Last name:</label>
-              <input type="text" name="lname" id="lname">
+              <input type="text" name="lname" id="lname" value="Tesfalul">
+
+              <label for="username2">Username:</label>
+              <input type="text" name="username2" value="coolbarberclient" id="username2">
+                
+              <label for="password2">Password:</label>
+              <input type="password" name="password2" value="Imcool" id="password2">
 
             </form>
         <br>
@@ -576,10 +600,10 @@
         <form>
             <div class="container">
                 <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" required value="m.patrick">
 
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" required value="Patrick">
         
                 <a href="#barber_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
             </div>
@@ -604,10 +628,10 @@
             <form>
                 <div class="container">
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <input type="text" placeholder="Enter Username" name="uname" required value="coolbarberclient">
 
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="psw" required value="Imcool">
                     <a href="#client_home" data-transition="slide" class="ui-btn" type="submit">Login</a>
                 </div>
             </form> 
@@ -745,6 +769,7 @@
             <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut1") > Yes </button> </a>
             <a href="#" data-rel="back"> <button> No </button> </a>
         </div>
+
         <div data-role="popup" id="confirm2" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a> 
              <p>Do you want to add picture to profile? </p>
@@ -793,7 +818,7 @@
             <a href="#" data-rel="back"> <button onclick=addCutToProfile("haircut9") > Yes </button> </a>
             <a href="#" data-rel="back"> <button> No </button> </a>
         </div>
-
+        
         <div data-role="popup" id="haircut1" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="pics/haircut1.jpg" style="max-height:512px;" alt="Paris, France">
         </div>
@@ -823,7 +848,6 @@
         <div data-role="popup" id="haircut9" data-overlay-theme="b" data-theme="b" data-corners="false">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="cut_image" src="pics/haircut9.jpg" style="max-height:512px;" alt="New York, USA">
         </div>
-
     </div>
 </div>
 
@@ -1282,10 +1306,12 @@
             </center>
     </div>
     <div data-role="content">
-        <h3 id="nav-menu-subtitle">Feedback Form </h3>
+        <h3 id="nav-menu-subtitle">Feedback Form</h3>
         <form>
             <div class="ui-field-contain">
-            <label for="feedback-endorsements-skills">What was your barber awesome at awesome at?</label>
+            <label class="feedback_form_text" for="feedback-endorsements-skills">What was your barber awesome at?</label>
+
+            <div>
             <select name="feedback-endorsements-skills" id="feedback-endorsements-skills" multiple="multiple" data-native-menu="false">
               <option>Skills</option>
               <option value="mon">Fade</option>
@@ -1295,6 +1321,8 @@
               <option value="fri">Mohawks</option>
               <option value="sat">Flat Top</option>
             </select>
+        </div>
+            <div>
             <select name="feedback-endorsements-qualities" id="feedback-endorsements-qualities" multiple="multiple" data-native-menu="false">
               <option>Personal Qualities</option>
               <option value="mon">Conversationalist</option>
@@ -1305,15 +1333,16 @@
               <option value="sat">Jokester</option>
             </select>
         </div>
+        </div>
         <div class="ui-field-contain">
-            <label> Let's see the cut! </label>
+            <label class="feedback_form_text"> Let's see the cut! </label>
             <div data-role="controlgroup" data-type="horizontal">
                 <a href="#" data-role="button">Upload</a>
                 <a href="#" data-role="button">Camera</a>
             </div>
         </div>
         <div class="ui-field-contain">          
-            <label for="info">Leave a testimonial telling us why your barber is great:</label>
+            <label class="feedback_form_text" for="info">Leave a testimonial telling us why your barber is great:</label>
             <textarea name="addinfo" id="info"></textarea>
         </div>
         <div id="discover-button" align="center">
